@@ -178,8 +178,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductDataController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -192,6 +195,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\game.jpg" />
+    <Content Include="Content\images\instagram.jpg" />
+    <Content Include="Content\images\telegram.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -246,6 +252,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Product\ListProduct.cshtml" />
+    <Content Include="Views\Product\SmallProduct.cshtml" />
+    <Content Include="Views\Product\LinearProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,6 +268,20 @@
     </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppStore.Biz\AppStore.Biz.csproj">
+      <Project>{f5ffe6e8-b0b0-4cff-9994-0d10983ceb59}</Project>
+      <Name>AppStore.Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppStore.Common\AppStore.Common.csproj">
+      <Project>{ea265c1e-5c20-4f94-8082-e88df8a08908}</Project>
+      <Name>AppStore.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppStore.Model\AppStore.Models.csproj">
+      <Project>{6f56379d-38d4-47fe-9e3d-8338a0302ded}</Project>
+      <Name>AppStore.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

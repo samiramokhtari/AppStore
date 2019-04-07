@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStore.Common", "AppStore
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStore.UI", "AppStore.UI\AppStore.UI.csproj", "{9E1259CD-A76C-4736-AD96-FB062D47509C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStore.Models", "AppStore.Model\AppStore.Models.csproj", "{6F56379D-38D4-47FE-9E3D-8338A0302DED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9E1259CD-A76C-4736-AD96-FB062D47509C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E1259CD-A76C-4736-AD96-FB062D47509C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E1259CD-A76C-4736-AD96-FB062D47509C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F56379D-38D4-47FE-9E3D-8338A0302DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F56379D-38D4-47FE-9E3D-8338A0302DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F56379D-38D4-47FE-9E3D-8338A0302DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F56379D-38D4-47FE-9E3D-8338A0302DED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

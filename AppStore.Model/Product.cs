@@ -16,5 +16,6 @@ namespace AppStore.Models
         public DateTime DateTime { get; set; }
         public ProductImage Logo { get; set; }
         public List<Comment> Comments { get; set; }
+        public double Rate { get; set; }
     }
 }
