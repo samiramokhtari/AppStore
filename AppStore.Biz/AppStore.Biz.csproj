@@ -58,7 +58,16 @@
     <Compile Include="Base\IRepository.cs" />
     <Compile Include="Base\ResultState.cs" />
     <Compile Include="Base\UnitOfWork.cs" />
+    <Compile Include="CommandBiz.cs" />
+    <Compile Include="DownloadBiz.cs" />
+    <Compile Include="GroupBiz.cs" />
+    <Compile Include="LogBiz.cs" />
+    <Compile Include="LogSystemBiz.cs" />
+    <Compile Include="ProductBiz.cs" />
+    <Compile Include="ProductImageBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubGroupBiz.cs" />
+    <Compile Include="UserBiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AppStore.Common\AppStore.Common.csproj">
@@ -68,6 +77,10 @@
     <ProjectReference Include="..\AppStore.DAL\AppStore.DAL.csproj">
       <Project>{97b75613-6702-4003-8379-715c357e2b2a}</Project>
       <Name>AppStore.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppStore.Model\AppStore.Models.csproj">
+      <Project>{6f56379d-38d4-47fe-9e3d-8338a0302ded}</Project>
+      <Name>AppStore.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
