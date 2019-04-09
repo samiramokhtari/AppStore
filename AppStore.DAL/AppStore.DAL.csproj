@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201904090804072_fristConfig.Designer.cs">
       <DependentUpon>201904090804072_fristConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904090950111_Update_Product.cs" />
+    <Compile Include="Migrations\201904090950111_Update_Product.Designer.cs">
+      <DependentUpon>201904090950111_Update_Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -113,6 +117,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904090804072_fristConfig.resx">
       <DependentUpon>201904090804072_fristConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904090950111_Update_Product.resx">
+      <DependentUpon>201904090950111_Update_Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
