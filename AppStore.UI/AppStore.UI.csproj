@@ -192,7 +192,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -282,6 +281,10 @@
     <ProjectReference Include="..\AppStore.Common\AppStore.Common.csproj">
       <Project>{ea265c1e-5c20-4f94-8082-e88df8a08908}</Project>
       <Name>AppStore.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppStore.DAL\AppStore.DAL.csproj">
+      <Project>{97b75613-6702-4003-8379-715c357e2b2a}</Project>
+      <Name>AppStore.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\AppStore.Model\AppStore.Models.csproj">
       <Project>{6f56379d-38d4-47fe-9e3d-8338a0302ded}</Project>

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AppStore.UI.Models;
+using AppStore.Models;
 
 namespace AppStore.UI.Controllers
 {

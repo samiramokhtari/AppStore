@@ -1,18 +1,19 @@
 namespace AppStore.UI.Migrations
 {
+    using AppStore.DAL;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AppStore.UI.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AppStoreDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(AppStore.UI.Models.ApplicationDbContext context)
+        protected override void Seed(AppStoreDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
