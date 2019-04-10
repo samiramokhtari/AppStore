@@ -196,6 +196,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\background.jpg" />
     <Content Include="Content\images\game.jpg" />
     <Content Include="Content\images\iconProduct\img-6.png" />
     <Content Include="Content\images\iconProduct\shareit %281%29.jpg" />

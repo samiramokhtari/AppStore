@@ -59,6 +59,10 @@ html {
 
 body {
     margin: 0;
+    background-image: url("/Content/images/background.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 a:focus {
