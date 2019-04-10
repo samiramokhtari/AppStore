@@ -3,32 +3,111 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
+@*<div class="col-md-4">
         @foreach (var item in Model)
         {
             @Html.Partial("~/Views/Product/LinearProduct.cshtml", item)
         }
-    </div>
-    <div class="col-md-4">
-        @foreach (var item in Model)
-        {
-            @Html.Partial("~/Views/Product/SmallProduct.cshtml", item)
-        }
-    </div>
+    </div>*@
+<style>
+    .small-product {
+        display: inline-block;
+        height: 150px;
+        width: 150px;
+        margin-left: 20px;
+    }
+
+    .small-span {
+        width: 100px;
+        height: 50px;
+        display: block;
+        text-align: center;
+    }
+</style>
+<div style="border-bottom: 1px solid #7c7c7c;">
+
+    @foreach (var item in Model)
+    {
+        @Html.Partial("~/Views/Product/SmallProduct.cshtml", item)
+    }
 </div>
+
+
+
+<section class="p-5 margin-top-xl pos-r">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="mt-5 pos-r">
+                    <div class="carousel-controls testimonial-carousel-controls">
+                        @*<div class="control prev controler-left"><i class="glyphicon glyphicon-chevron-left"> &nbsp;</i></div>
+                            <div class="control next controler-right"><i class="glyphicon glyphicon-chevron-right"> &nbsp;</i></div>*@
+
+                        <div class="control prev"><i class="fa fa-chevron-left text-gray">&nbsp;</i></div>
+                        <div class="control next"><i class="fa fa-chevron-right text-gray">&nbsp;</i></div>
+                    </div>
+                    <div class="testimonial-carousel">
+                        <div class="one-slide white">
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <div class="brand"><img alt="Florida Dairy Farmers" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
+                                <div class="separator">&nbsp;</div>
+                                <spa class="message text-center text-gray" style="direction:rtl">instagram</spa>
+
+                            </div>
+                        </div>
+                        <div class="one-slide white">
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <div class="brand"><img alt="Florida Department of Education" src="~/Content/images/iconProduct/shareit (1).jpg" width="150" height="150" class="mx-auto" /></div>
+                                <div class="separator">&nbsp;</div>
+                                <div class="message text-center text-gray">Shearit</div>
+
+                            </div>
+                        </div>
+
+                        <div class="one-slide white">
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
+                                <div class="separator">&nbsp;</div>
+                                <div class="message text-center text-gray">snapp</div>
+                            </div>
+                        </div>
+                        <div class="one-slide white">
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
+                                <div class="separator">&nbsp;</div>
+                                <div class="message text-center text-gray">snapp</div>
+
+                            </div>
+                        </div>
+                        <div class="one-slide white">
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <div class="brand"><img alt="Lynx" src="~/Content/images/iconProduct/telegram.jpg" width="150" height="150" class="mx-auto" /></div>
+                                <div class="separator">&nbsp;</div>
+                                <div class="message text-center text-gray">telegram</div>
+                            </div>
+                        </div>
+                        <div class="one-slide white">
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <div class="brand"><img alt="Miami Beach VCA" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
+                                <div class="separator">&nbsp;</div>
+                                 <div class="message text-center text-gray">viber</div>
+                            </div>
+                        </div>
+                        <div class="one-slide white">
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <div class="brand"><img alt="Oneblood" src="~/Content/images/iconProduct/whatsapp.jpg" width="150" height="150" class="mx-auto" /></div>
+                                <div class="separator">&nbsp;</div>
+                                  <div class="message text-center text-gray">whatsapp</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
