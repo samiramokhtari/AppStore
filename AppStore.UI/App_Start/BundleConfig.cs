@@ -26,9 +26,10 @@ namespace AppStore.UI
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                       "~/Content/bootstrap.css",
                       "~/Content/slider-boxes.scss",
                       "~/Content/slick.min.css",
+                      
                       //"~/Content/font-awesome.min.css",
                       "~/Content/site.css"));
         }
