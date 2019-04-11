@@ -29,7 +29,7 @@ namespace AppStore.UI
                        "~/Content/bootstrap.css",
                       "~/Content/slider-boxes.scss",
                       "~/Content/slick.min.css",
-                      
+                      "~/Content/bootstrap-4-utilities.css",
                       //"~/Content/font-awesome.min.css",
                       "~/Content/site.css"));
         }

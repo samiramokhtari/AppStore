@@ -2,111 +2,106 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
 @*<div class="col-md-4">
         @foreach (var item in Model)
         {
             @Html.Partial("~/Views/Product/LinearProduct.cshtml", item)
         }
     </div>*@
-<style>
-    .small-product {
-        display: inline-block;
-        height: 150px;
-        width: 150px;
-        margin-left: 20px;
-    }
 
-    .small-span {
-        width: 100px;
-        height: 50px;
-        display: block;
-        text-align: center;
-    }
-</style>
-<div style="border-bottom: 1px solid #7c7c7c;">
-
-    @foreach (var item in Model)
-    {
-        @Html.Partial("~/Views/Product/SmallProduct.cshtml", item)
-    }
-</div>
-
-
-
-<section class="p-5 margin-top-xl pos-r" id="slide-box-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12"> <h4 class="message text-right text-gray text-bold" >برنامه های محبوب من</h4>
-               
-            </div>
-            
-            <div class="col-sm-12" >
-                <div class="mt-5 pos-r">
-                    <div class="carousel-controls testimonial-carousel-controls">
-                        <div class="control prev"><i class="fa fa-chevron-left text-gray">&nbsp;</i></div>
-                        <div class="control next"><i class="fa fa-chevron-right text-gray">&nbsp;</i></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-heading">
+                <div class="panel-heading bg">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                @*<img class="img-responsive" src="http://placehold.it/100x70">*@
+                            </div>
+                            <div class="col-lg-2">
+                                <h1 class="glyphicon  text-right text-white m-0 p-0">برنامه</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="testimonial-carousel">
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Dairy Farmers" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <spa class="message text-center text-gray" style="direction:rtl">instagram</spa>
-
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="col-lg-3">
+                                <button type="button" class="btn btn-install btn-block">
+                                    <h3>نصب</h3>
+                                </button>
                             </div>
-                        </div>
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Department of Education" src="~/Content/images/iconProduct/shareit (1).jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">Shearit</div>
 
-                            </div>
                         </div>
 
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
-                            </div>
+                        <div class="col-lg-2">
+                            <h1 class="product-name"><strong>اینستاگرام</strong></h1><h4><small>استودیوهزارتو</small></h4>
                         </div>
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
+                        <div class="col-lg-2">
+                            <img class="img-responsive" src="~/Content/images/iconShowDetelis/app-5.png" width="185" height="185">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-3">
 
-                            </div>
-                        </div>
-                        <div class="one-slide white">
                             <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Lynx" src="~/Content/images/iconProduct/telegram.jpg" width="150" height="150" class="mx-auto" /></div>
+                                <button class="btn bouton-image icondownload"></button>
                                 <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">telegram</div>
+                                <h4 class="message text-center text-gray">10M</h4>
                             </div>
                         </div>
-                        <div class="one-slide white">
+                        <div class="col-lg-3">
+
                             <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Miami Beach VCA" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
+                                <button class="btn bouton-image iconSize"></button>
                                 <div class="separator">&nbsp;</div>
-                                 <div class="message text-center text-gray">viber</div>
+                                <h4 class="message text-center text-gray">22,000,000</h4>
                             </div>
                         </div>
-                        <div class="one-slide white">
+                        <div class="col-lg-3">
+
                             <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Oneblood" src="~/Content/images/iconProduct/whatsapp.jpg" width="150" height="150" class="mx-auto" /></div>
+                                <button class="btn bouton-image iconCountComment"></button>
                                 <div class="separator">&nbsp;</div>
-                                  <div class="message text-center text-gray">whatsapp</div>
+                                <h4 class="message text-center text-gray">4.8</h4>
                             </div>
                         </div>
+                        <div class="col-lg-3">
+
+                            <div class="testimonial w-100 h-100  p-3 text-center">
+                                <button class="btn bouton-image iconShareing"></button>
+                                <div class="separator">&nbsp;</div>
+                                <h4 class="message text-center text-gray">شبکه های اجتماعی</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+    <hr>
+</div>
+
+
+
+<div style="border-bottom: 1px solid #7c7c7c;">
+
+    @*@foreach (var item in Model)*@
+    @* { *@
+    @* @Html.Partial("~/Views/Product/SmallProduct.cshtml", item)*@
+    @*  }*@
+</div>
+
+
+
+
 
 
 
