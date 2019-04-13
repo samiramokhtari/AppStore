@@ -16,5 +16,22 @@ namespace AppStore.UI.Controllers
         {
             return new Biz.CommentBiz().Get(Productid);
         }
+
+        // POST api/<controller>
+        public OperationResult Post([FromBody]Comment model)
+        {
+            var result = new Biz.CommentBiz().Create(model);
+            return result;
+        }
+
+        // PUT api/<controller>/5
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE api/<controller>/5
+        public void Delete(int id)
+        {
+        }
     }
 }
