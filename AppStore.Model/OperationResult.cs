@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AppStore.Biz
+namespace AppStore.Models
 {
-    public class ResultState
+    public class OperationResult
     {
         private Exception _exception = null;
 
@@ -58,7 +58,7 @@ namespace AppStore.Biz
             }
         }
 
-        public ResultState(Exception ex, bool logError = true)
+        public OperationResult(Exception ex, bool logError = true)
         {
             this._exception = ex;
         }
