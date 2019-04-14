@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,20 +11,22 @@ namespace AppStore.UI.Controllers
     public class ProductDataController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new Biz.ProductBiz().GetAll();
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            return new Biz.ProductBiz().Get(id);
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public OperationResult Post([FromBody]Product model)
         {
+            var result = new Biz.ProductBiz().Create(model);
+            return result;
         }
 
         // PUT api/<controller>/5
