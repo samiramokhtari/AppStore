@@ -9,8 +9,9 @@ using System.Data.Entity;
 using System.Data.Linq;
 using System.Data.Entity.Infrastructure;
 using System.Data.Metadata.Edm;
+using AppStore.Models;
 
-namespace AppStore.Biz
+namespace AppStore.DAL
 {
     public class DataRepository<TEntity> : IRepository<TEntity>, IDisposable
         where TEntity : class, new()
@@ -34,52 +35,52 @@ namespace AppStore.Biz
             // this.context.ContextOptions.ProxyCreationEnabled = false;
         }
 
-        public IQueryable<TEntity> Fetch(out ResultState rState)
+        public IQueryable<TEntity> Fetch(out OperationResult rState)
         {
             try
             {
                 var result = set;
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
                 return result;
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
                 return null;
             }
         }
 
-        public IQueryable<TEntity> Find(Func<TEntity, bool> predicate, out ResultState rState)
+        public IQueryable<TEntity> Find(Func<TEntity, bool> predicate, out OperationResult rState)
         {
             try
             {
                 var result = set.Where(predicate).AsQueryable();
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
                 return result;
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
                 return null;
             }
         }
 
-        public TEntity First(Func<TEntity, bool> predicate, out ResultState rState)
+        public TEntity First(Func<TEntity, bool> predicate, out OperationResult rState)
         {
             try
             {
                 var result = set.First(predicate);
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
                 return result;
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
                 return null;
             }
         }
 
-        public TEntity GetByPkValue(object pkvalue, out ResultState rState)
+        public TEntity GetByPkValue(object pkvalue, out OperationResult rState)
         {
             try
             {
@@ -92,17 +93,17 @@ namespace AppStore.Biz
 
                 var result = (TEntity)entitySet.Context.GetObjectByKey(key);
 
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
                 return result;
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
                 return null;
             }
         }
 
-        public void Add(TEntity entity, out ResultState rState)
+        public void Add(TEntity entity, out OperationResult rState)
         {
             try
             {
@@ -113,11 +114,11 @@ namespace AppStore.Biz
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
 
-        public void Add(IEnumerable<TEntity> entities, out ResultState rState)
+        public void Add(IEnumerable<TEntity> entities, out OperationResult rState)
         {
             using (var transaction = new System.Transactions.TransactionScope())
             {
@@ -130,17 +131,17 @@ namespace AppStore.Biz
                     this.SaveChanges(out rState);
                     if (!rState.Succeed) throw rState.Exception;
                     transaction.Complete();
-                    rState = new ResultState(null);
+                    rState = new OperationResult(null);
 
                 }
                 catch (Exception ex)
                 {
-                    rState = new ResultState(ex);
+                    rState = new OperationResult(ex);
                 }
             }
         }
 
-        public void Update(TEntity entity, out ResultState rState)
+        public void Update(TEntity entity, out OperationResult rState)
         {
             try
             {
@@ -150,11 +151,11 @@ namespace AppStore.Biz
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
 
-        public void Update(TEntity entity, object changes, out ResultState rState)
+        public void Update(TEntity entity, object changes, out OperationResult rState)
         {
             try
             {
@@ -164,11 +165,11 @@ namespace AppStore.Biz
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
 
-        public void Delete(TEntity entity, out ResultState rState)
+        public void Delete(TEntity entity, out OperationResult rState)
         {
             try
             {
@@ -178,12 +179,12 @@ namespace AppStore.Biz
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
 
 
-        public void Delete(IEnumerable<TEntity> entities, out ResultState rState, TransactionScope transactionscope = null)
+        public void Delete(IEnumerable<TEntity> entities, out OperationResult rState, TransactionScope transactionscope = null)
         {
             using (var transaction = transactionscope ?? new System.Transactions.TransactionScope())
             {
@@ -196,27 +197,27 @@ namespace AppStore.Biz
                     this.SaveChanges(out rState);
                     if (!rState.Succeed) throw rState.Exception;
                     if (transactionscope == null) transaction.Complete();
-                    rState = new ResultState(null);
+                    rState = new OperationResult(null);
 
                 }
                 catch (Exception ex)
                 {
-                    rState = new ResultState(ex);
+                    rState = new OperationResult(ex);
                 }
             }
         }
 
-        public void Attach(TEntity entity, out ResultState rState)
+        public void Attach(TEntity entity, out OperationResult rState)
         {
             try
             {
                 set.Attach(entity);
                 this.SaveChanges(out rState);
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
 
@@ -237,18 +238,18 @@ namespace AppStore.Biz
             return null;
         }
 
-        public object GetPkValue(TEntity entity, out ResultState rState)
+        public object GetPkValue(TEntity entity, out OperationResult rState)
         {
             try
             {
                 var propertyDescriptor = entity.GetType().GetProperty(this.GetPkName());
                 var result = propertyDescriptor.GetValue(entity, null);
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
                 return result;
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
                 return null;
             }
         }
@@ -301,7 +302,7 @@ namespace AppStore.Biz
 
         }
 
-        public int SaveChanges(out ResultState rState)
+        public int SaveChanges(out OperationResult rState)
         {
             try
             {
@@ -310,12 +311,12 @@ namespace AppStore.Biz
 
                 //var result = context.SaveChanges(System.Data.Objects.SaveOptions.AcceptAllChangesAfterSave);
                 var result = Context.SaveChanges();
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
                 return result;
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
                 return -1;
             }
         }
@@ -323,25 +324,25 @@ namespace AppStore.Biz
 
         public int SaveChanges()
         {
-            ResultState state = null;
+            OperationResult state = null;
             return SaveChanges(out state);
         }
 
 
-        public void InsertOnSaveChanges(TEntity entity, out ResultState rState)
+        public void InsertOnSaveChanges(TEntity entity, out OperationResult rState)
         {
             try
             {
                 set.Add(entity);
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
                 //this.SaveChanges(out rState);
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
-        public void InsertOnSaveChanges(IEnumerable<TEntity> entities, out ResultState rState)
+        public void InsertOnSaveChanges(IEnumerable<TEntity> entities, out OperationResult rState)
         {
             //using (var transaction = new System.Transactions.TransactionScope())
             //{
@@ -354,16 +355,16 @@ namespace AppStore.Biz
                 }
                 //this.SaveChanges(out rState);
                 //transaction.Complete();
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
 
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
             //}
         }
-        public void UpdateOnSaveChanges(TEntity entity, out ResultState rState)
+        public void UpdateOnSaveChanges(TEntity entity, out OperationResult rState)
         {
             try
             {
@@ -382,15 +383,15 @@ namespace AppStore.Biz
                 }
                 entity = result;
                 //this.SaveChanges(out rState);
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
 
-        public void UpdateOnSaveChanges(TEntity entity, object changes, out ResultState rState)
+        public void UpdateOnSaveChanges(TEntity entity, object changes, out OperationResult rState)
         {
             try
             {
@@ -423,26 +424,26 @@ namespace AppStore.Biz
                     }
                 }
                 entity = result;
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
-        public void DeleteOnSaveChanges(TEntity entity, out ResultState rState)
+        public void DeleteOnSaveChanges(TEntity entity, out OperationResult rState)
         {
             try
             {
                 set.Remove(entity);
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
-        public void DeleteOnSaveChanges(IEnumerable<TEntity> entities, out ResultState rState)
+        public void DeleteOnSaveChanges(IEnumerable<TEntity> entities, out OperationResult rState)
         {
             try
             {
@@ -451,12 +452,12 @@ namespace AppStore.Biz
                     this.DeleteOnSaveChanges(entity, out rState);
                     if (!rState.Succeed) throw rState.Exception;
                 }
-                rState = new ResultState(null);
+                rState = new OperationResult(null);
 
             }
             catch (Exception ex)
             {
-                rState = new ResultState(ex);
+                rState = new OperationResult(ex);
             }
         }
 

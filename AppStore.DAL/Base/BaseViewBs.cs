@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.Entity;
 using System.Data.Linq;
 
-namespace AppStore.Biz
+namespace AppStore.DAL
 {
     public class BaseViewBs<TEntity> where TEntity : class, new()
     {

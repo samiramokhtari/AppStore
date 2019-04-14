@@ -1,46 +1,47 @@
 ﻿using AppStore.DAL;
+using AppStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppStore.Biz
+namespace AppStore.DAL
 {
     public class UnitOfWork : IDisposable
     {
-        //DB_Entities context = new DB_Entities();
+        AppStoreDbContext context = new AppStoreDbContext();
 
-        //private BaseBs<Transaction> transactionRepository;
+        private BaseBs<Product> productRepository;
 
-        //public BaseBs<Transaction> TransactionRepository
-        //{
-        //    get
-        //    {
+        public BaseBs<Product> ProductRepository
+        {
+            get
+            {
 
-        //        if (transactionRepository == null)
-        //            transactionRepository = new BaseBs<Transaction>(context);
-
-
-        //        return transactionRepository;
-        //    }
-        //}
+                if (productRepository == null)
+                    productRepository = new BaseBs<Product>(context);
 
 
+                return productRepository;
+            }
+        }
 
 
-        //private BaseBs<Login> loginRepository;
 
-        //public BaseBs<Login> LoginReppository
-        //{
-        //    get
-        //    {
-        //        if (loginRepository == null)
-        //            loginRepository = new BaseBs<Login>(context);
 
-        //        return loginRepository;
-        //    }
-        //}
+        private BaseBs<Comment> commentRepository;
+
+        public BaseBs<Comment> CommentReppository
+        {
+            get
+            {
+                if (commentRepository == null)
+                    commentRepository = new BaseBs<Comment>(context);
+
+                return commentRepository;
+            }
+        }
 
         //private BaseBs<DeviceFailureSetting> deviceFailureSettingRepository;
 
