@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AppStore.Models;
+using AppStore.DAL;
 
 namespace AppStore.Biz
 {
@@ -11,6 +12,7 @@ namespace AppStore.Biz
     {
         public List<Product> GetAll()
         {
+            // todo: uncomment sample data lines
             List<Product> result = new List<Product>();
             result.Add(new Product() { Id = 1, Group = new Group() { Id = 1 },DateTime = DateTime.Now,Price = 0,FileSize = "2k",Name="قورمه", Logo = new ProductImage() { Id = 1 } });
             result.Add(new Product() { Id = 2, Group = new Group() { Id = 1 },DateTime = DateTime.Now,Price = 0,FileSize = "2k",Name="پتزای آنلاین" , Logo = new ProductImage() { Id = 2 } });
@@ -26,13 +28,85 @@ namespace AppStore.Biz
             result.Add(new Product() { Id = 12, Group = new Group() { Id = 6 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "بازی تکاور" , Logo = new ProductImage() { Id = 11 } });
             result.Add(new Product() { Id = 13, Group = new Group() { Id = 6 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "فرمانده" , Logo = new ProductImage() { Id = 12 } });
             return result;
+
+            // real code
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                return uow.ProductRepository.GetAllItems.ToList();
+            }
+
+
         }
 
+        public Product Get(int id)
+        {
+            // todo: uncomment sample data lines
+            return new Product() { Id = 1, Group = new Group() { Id = 1 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "قورمه", Logo = new ProductImage() { Id = 1 } };
+
+            // real code
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                return uow.ProductRepository.GetAllItems.FirstOrDefault(x => x.Id == id);
+            }
+        }
+
+        public OperationResult Create(Product model)
+        {
+            OperationResult rState = null;
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                uow.ProductRepository.Insert(model, out rState);
+                return rState;
+            }
+        }
+
+
+
+        /*
+        public string Create(Product model, string userId)
+        {
+            ResultState state = null;
+
+            Product obj = GetAll().Where(m => m.Name == model.Name).FirstOrDefault();
+
+            LogBiz<Product> log = new LogBiz<Product>();
+
+
+            if (obj == null)
+            {
+                obj = new Product();
+                obj.Name = model.Name;
+                obj.Price = model.Price;
+                obj.FileSize = model.FileSize;
+                obj.DateTime= DateTime.Now;
+
+               // Product newobj = unit.DeviceSettingRepository.Insert(obj, out state);
+
+                new LogSystemBiz().Insert(new LogSystemModel()
+                {
+                    Action = "اضافه محصول",
+                    //AfterChange = log.GetProperites(newobj),
+                    BeforeChange = "",
+                    DateTime = DateTime.Now,
+                    ErrorMessage = (state.Succeed ? " " : state.Message + " - " + state.Exception.StackTrace),
+                    UserId = userId
+                });
+                if (state.Succeed)
+                    return "true";
+
+
+
+                return state.Message;
+            }
+
+            return "false";
+        }
+        */
 
         public string Edit(Product model, string userId)
         {
 
-            ResultState state = null;
+            OperationResult state = null;
 
             Product obj = GetAll().Where(m => m.Id == model.Id).FirstOrDefault();
 
@@ -73,50 +147,9 @@ namespace AppStore.Biz
 
 
 
-        public string Create(Product model, string userId)
-        {
-            ResultState state = null;
-
-            Product obj = GetAll().Where(m => m.Name == model.Name).FirstOrDefault();
-
-            LogBiz<Product> log = new LogBiz<Product>();
-
-
-            if (obj == null)
-            {
-                obj = new Product();
-                obj.Name = model.Name;
-                obj.Price = model.Price;
-                obj.FileSize = model.FileSize;
-                obj.DateTime= DateTime.Now;
-               
-
-               // Product newobj = unit.DeviceSettingRepository.Insert(obj, out state);
-
-                new LogSystemBiz().Insert(new LogSystemModel()
-                {
-                    Action = "اضافه محصول",
-                    //AfterChange = log.GetProperites(newobj),
-                    BeforeChange = "",
-                    DateTime = DateTime.Now,
-                    ErrorMessage = (state.Succeed ? " " : state.Message + " - " + state.Exception.StackTrace),
-                    UserId = userId
-                });
-                if (state.Succeed)
-                    return "true";
-
-
-
-                return state.Message;
-            }
-
-            return "false";
-        }
-
-
         public string Delete(int id, string userId)
         {
-            ResultState state = null;
+            OperationResult state = null;
             Product obj = GetAll().Where(m => m.Id == id).FirstOrDefault();
 
             if (obj != null)

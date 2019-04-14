@@ -13,7 +13,7 @@ namespace AppStore.Biz
 
         public bool Insert(LogSystemModel model)
         {
-            ResultState state = null;
+            OperationResult state = null;
             //LogSystem log = new LogSystem()
             //{
             //    Action = (model.Action == null ? "" : model.Action),

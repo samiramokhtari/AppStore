@@ -52,12 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BaseBs.cs" />
-    <Compile Include="Base\BaseViewBs.cs" />
-    <Compile Include="Base\DataRepository.cs" />
-    <Compile Include="Base\IRepository.cs" />
-    <Compile Include="Base\ResultState.cs" />
-    <Compile Include="Base\UnitOfWork.cs" />
     <Compile Include="CommandBiz.cs" />
     <Compile Include="DownloadBiz.cs" />
     <Compile Include="GroupBiz.cs" />
