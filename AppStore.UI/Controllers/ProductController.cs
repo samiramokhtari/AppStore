@@ -12,10 +12,17 @@ namespace AppStore.UI.Controllers
         // GET: Product
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult Get(int id)
+        {
+            return View("Index");
+        }
 
 
-
-
+        public ActionResult Manage()
+        {
             return View();
         }
     }

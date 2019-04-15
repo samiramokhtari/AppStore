@@ -3,31 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 
-
-<style type="text/css">
-    .lang-bar{
-        border-right: 10px solid #8c0145;
-    }
-    .left-corner {
-        left: 0;
-        bottom: 0;
-        border-bottom: 4px solid #8c0145;
-        border-left: 4px solid #8c0145;
-        border-radius: 0 0 0 4px;
-    }
-    .right-corner {
-        right: 0;
-        top: 0;
-        border-top: 4px solid #8c0145;
-        border-right: 4px solid #8c0145;
-        border-radius: 0 4px 0;
-    }
-    .left-corner, .right-corner {
-        position: absolute;
-        width: 15px;
-        height: 15px;
-    }
-</style>
+@Html.Partial("_SlidShowPartial")
 @*<div class="col-md-4">
         @foreach (var item in Model)
         {
@@ -35,380 +11,195 @@
         }
     </div>*@
 
-@*<div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-heading">
-                    <div class="panel-heading bg">
-                        <div class="panel-title">
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    @*<img class="img-responsive" src="http://placehold.it/100x70">
-                                </div>
-                                <div class="col-lg-2">
-                                    <h1 class="glyphicon  text-right text-white m-0 p-0">برنامه</h1>
-                                </div>
-                            </div>
+@*Home page*@
+<section class="p-5 margin-top-xl pos-r" id="slide-box-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="message text-right text-gray text-bold">برنامه های محبوب من</h4>
+
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="mt-5 pos-r">
+                        <div class="carousel-controls testimonial-carousel-controls">
+                            <div class="control prev"><i class="fa fa-chevron-left text-gray">&nbsp;</i></div>
+                            <div class="control next"><i class="fa fa-chevron-right text-gray">&nbsp;</i></div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="col-lg-3">
-                                    <button type="button" class="btn btn-install btn-block">
-                                        <h3>نصب</h3>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2">
-                                <h1 class="product-name"><strong>اینستاگرام</strong></h1><h4><small>استودیوهزارتو</small></h4>
-                            </div>
-                            <div class="col-lg-2">
-                                <img class="img-responsive" src="~/Content/images/iconShowDetelis/app-5.png" width="185" height="185">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-lg-3">
-
+                        <div class="testimonial-carousel">
+                            <div class="one-slide white">
                                 <div class="testimonial w-100 h-100  p-3 text-center">
-                                    <button class="btn bouton-image icondownload"></button>
+                                    <div class="brand"><img alt="Florida Dairy Farmers" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
                                     <div class="separator">&nbsp;</div>
-                                    <h4 class="message text-center text-gray">10M</h4>
+                                    <spa class="message text-center text-gray" style="direction:rtl">instagram</spa>
+
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-
+                            <div class="one-slide white">
                                 <div class="testimonial w-100 h-100  p-3 text-center">
-                                    <button class="btn bouton-image iconSize"></button>
+                                    <div class="brand"><img alt="Florida Department of Education" src="~/Content/images/iconProduct/shareit (1).jpg" width="150" height="150" class="mx-auto" /></div>
                                     <div class="separator">&nbsp;</div>
-                                    <h4 class="message text-center text-gray">22,000,000</h4>
+                                    <div class="message text-center text-gray">Shearit</div>
+
                                 </div>
                             </div>
-                            <div class="col-lg-3">
 
+                            <div class="one-slide white">
                                 <div class="testimonial w-100 h-100  p-3 text-center">
-                                    <button class="btn bouton-image iconCountComment"></button>
+                                    <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
                                     <div class="separator">&nbsp;</div>
-                                    <h4 class="message text-center text-gray">4.8</h4>
+                                    <div class="message text-center text-gray">snapp</div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-
+                            <div class="one-slide white">
                                 <div class="testimonial w-100 h-100  p-3 text-center">
-                                    <button class="btn bouton-image iconShareing"></button>
+                                    <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
                                     <div class="separator">&nbsp;</div>
-                                    <h4 class="message text-center text-gray">شبکه های اجتماعی</h4>
+                                    <div class="message text-center text-gray">snapp</div>
+
                                 </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-
+                            <div class="one-slide white">
+                                <div class="testimonial w-100 h-100  p-3 text-center">
+                                    <div class="brand"><img alt="Lynx" src="~/Content/images/iconProduct/telegram.jpg" width="150" height="150" class="mx-auto" /></div>
+                                    <div class="separator">&nbsp;</div>
+                                    <div class="message text-center text-gray">telegram</div>
+                                </div>
+                            </div>
+                            <div class="one-slide white">
+                                <div class="testimonial w-100 h-100  p-3 text-center">
+                                    <div class="brand"><img alt="Miami Beach VCA" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
+                                    <div class="separator">&nbsp;</div>
+                                    <div class="message text-center text-gray">viber</div>
+                                </div>
+                            </div>
+                            <div class="one-slide white">
+                                <div class="testimonial w-100 h-100  p-3 text-center">
+                                    <div class="brand"><img alt="Oneblood" src="~/Content/images/iconProduct/whatsapp.jpg" width="150" height="150" class="mx-auto" /></div>
+                                    <div class="separator">&nbsp;</div>
+                                    <div class="message text-center text-gray">whatsapp</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
+    </section>
+
+
+
+
+@*show comment*@
+@*<div class="container" style="direction: rtl;margin:10px 0 0 0 ">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1" id="logout">
+
+                <div>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="comments-logout">
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-body">
+                                        <div class="well well-lg lang-bar">
+                                            <div class="text-lg-center">
+                                                <img src="~/Content/images/Unlike.jpg" class="disabled list-inline"/>
+                                                <img src="~/Content/images/Unlike.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/Unlike.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like.jpg" class="disabled list-inline" />
+                                            </div>
+                                            <p class="media-comment  text-lg-center text-capitalize">
+                                                <strong>امتیاز من به این برنامه</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li class="media">
+                                    <a class="pull-right" href="#">
+                                        <img class="media-object img-circle" src="~/Content/images/Users/User2.jpg" alt="profile">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="well well-lg" style="position: relative">
+                                            <div class="left-corner"></div>
+                                            <div class="right-corner"></div>
+                                            <div class="text-lg-center">
+                                                <img src="~/Content/images/Unlike1.jpg" class="disabled list-inline"/>
+                                                <img src="~/Content/images/Unlike1.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/Unlike1.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like1.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like1.jpg" class="disabled list-inline" />
+                                            </div>
+                                            <h4 class="media-heading text-uppercase reviews">حسن ایوبی</h4>
+                                            <ul class="media-date text-uppercase reviews list-inline">
+                                                <li class="dd">22</li>
+                                                <li class="mm">فروردین</li>
+                                                <li class="aaaa">1398</li>
+                                            </ul>
+                                            <p class="media-comment">
+                                                عالی بود. بنظرم امکاناتش بیشتر باشه عالیه
+                                            </p>
+
+                                            <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="pull-right" href="#">
+                                        <img class="media-object img-circle" src="~/Content/images/Users/User1.jpg" alt="profile">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="well well-lg" style="position: relative">
+                                            <div class="left-corner"></div>
+                                            <div class="right-corner"></div>
+                                            <div class="text-lg-center">
+                                                <img src="~/Content/images/like1.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like1.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like1.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like1.jpg" class="disabled list-inline" />
+                                                <img src="~/Content/images/like1.jpg" class="disabled list-inline" />
+                                            </div>
+
+                                            <h4 class="media-heading text-uppercase reviews">نازنین مرادزاده</h4>
+                                            <ul class="media-date text-uppercase reviews list-inline">
+                                                <li class="dd">20</li>
+                                                <li class="mm">اسفند</li>
+                                                <li class="aaaa">1397</li>
+                                            </ul>
+                                            <p class="media-comment">
+                                                بدک نبود. میتونیست بهتر باشه. بنظرم گرافیکش خیلی ساده بود
+                                            </p>
+                                            <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
+                                            <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyTwo"><span class="glyphicon glyphicon-comment"></span> 1 نظر</a>
+                                        </div>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>*@
-
-
-@*<section class="p-5 margin-top-xl pos-r" id="slide-box-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h4 class="message text-right text-gray text-bold">برنامه های محبوب من</h4>
-
-            </div>
-
-            <div class="col-sm-12">
-                <div class="mt-5 pos-r">
-                    <div class="carousel-controls testimonial-carousel-controls">
-                        <div class="control prev"><i class="fa fa-chevron-left text-gray">&nbsp;</i></div>
-                        <div class="control next"><i class="fa fa-chevron-right text-gray">&nbsp;</i></div>
-                    </div>
-                    <div class="testimonial-carousel">
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Dairy Farmers" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <spa class="message text-center text-gray" style="direction:rtl">instagram</spa>
-
-                            </div>
-                        </div>
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Department of Education" src="~/Content/images/iconProduct/shareit (1).jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">Shearit</div>
-
-                            </div>
-                        </div>
-
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
-
-                            </div>
-                        </div>
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Lynx" src="~/Content/images/iconProduct/telegram.jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">telegram</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Miami Beach VCA" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">viber</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Oneblood" src="~/Content/images/iconProduct/whatsapp.jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">whatsapp</div>
-                            </div>
-                        </div>
-                    </div>
+@*add comment*@
+@*<div style="direction:rtl">
+        <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label"><span class="text-right"> نظر</span></label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
                 </div>
             </div>
-        </div>
-    </div>
-</section>*@
 
-
-
-
-
-<div class="container" style="direction: rtl;margin:10px 0 0 0 ">
-    <div class="row">
-        <div class="col-sm-10 col-sm-offset-1" id="logout">
-            
-            <div class="comment-tabs">
-                <ul class="nav nav-tabs" role="tablist">
-                    @*<li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize"></h4></a></li>
-                    <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize"></h4></a></li>
-                    <li><a href="#account-settings" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize"></h4></a></li>*@
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="comments-logout">
-                        <ul class="media-list">
-                            <li class="media">
-                                <div class="media-body">
-                                    <div class="well well-lg lang-bar">
-                                        
-                                        <p class="media-comment  text-lg-center text-capitalize">
-                                            <strong>امتیاز من به این برنامه</strong>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="collapse" id="replyOne">
-                                    <ul class="media-list">
-                                        <li class="media media-replied">
-                                            <a class="pull-right" href="#">
-                                                <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/ManikRathee/128.jpg" alt="profile">
-                                            </a>
-                                            <div class="media-body">
-                                                <div class="well well-lg">
-                                                    <h4 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> The Hipster</h4>
-                                                    <ul class="media-date text-uppercase reviews list-inline">
-                                                        <li class="dd">22</li>
-                                                        <li class="mm">09</li>
-                                                        <li class="aaaa">2014</li>
-                                                    </ul>
-                                                    <p class="media-comment">
-                                                        Nice job Maria.
-                                                    </p>
-                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="media media-replied" id="replied">
-                                            <a class="pull-right" href="#">
-                                                <img class="media-object img-circle" src="https://pbs.twimg.com/profile_images/442656111636668417/Q_9oP8iZ.jpeg" alt="profile">
-                                            </a>
-                                            <div class="media-body">
-                                                <div class="well well-lg" style="position: relative">
-                                                    <div class="left-corner"></div>
-                                                    <div class="right-corner"></div>
-                                                    <h4 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> Mary</h4></h4>
-                                                    <ul class="media-date text-uppercase reviews list-inline">
-                                                        <li class="dd">22</li>
-                                                        <li class="mm">09</li>
-                                                        <li class="aaaa">2014</li>
-                                                    </ul>
-                                                    <p class="media-comment">
-                                                        Thank you Guys!
-                                                    </p>
-                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a class="pull-right" href="#">
-                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kurafire/128.jpg" alt="profile">
-                                </a>
-                                <div class="media-body">
-                                    <div class="well well-lg" style="position: relative">
-                                        <div class="left-corner"></div>
-                                        <div class="right-corner"></div>
-                                        <h4 class="media-heading text-uppercase reviews">حسن ایوبی</h4>
-                                        <ul class="media-date text-uppercase reviews list-inline">
-                                            <li class="dd">22</li>
-                                            <li class="mm">فروردین</li>
-                                            <li class="aaaa">1398</li>
-                                        </ul>
-                                        <p class="media-comment">
-                                            عالی بود. بنظرم امکاناتش بیشتر باشه عالیه
-                                        </p>
-
-                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a class="pull-right" href="#">
-                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/lady_katherine/128.jpg" alt="profile">
-                                </a>
-                                <div class="media-body">
-                                    <div class="well well-lg" style="position: relative">
-                                        <div class="left-corner"></div>
-                                        <div class="right-corner"></div>
-                                        <h4 class="media-heading text-uppercase reviews">نازنین مرادزاده</h4>
-                                        <ul class="media-date text-uppercase reviews list-inline">
-                                            <li class="dd">20</li>
-                                            <li class="mm">اسفند</li>
-                                            <li class="aaaa">1397</li>
-                                        </ul>
-                                        <p class="media-comment">
-                                            بدک نبود. میتونیست بهتر باشه. بنظرم گرافیکش خیلی ساده بود
-                                        </p>
-                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
-                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyTwo"><span class="glyphicon glyphicon-comment"></span> 1 نظر</a>
-                                    </div>
-                                </div>
-                                <div class="collapse" id="replyTwo">
-                                    <ul class="media-list">
-                                        <li class="media media-replied">
-                                            <a class="pull-right" href="#">
-                                                <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/128.jpg" alt="profile">
-                                            </a>
-                                            <div class="media-body">
-                                                <div class="well well-lg">
-                                                    <h4 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> Lizz</h4>
-                                                    <ul class="media-date text-uppercase reviews list-inline">
-                                                        <li class="dd">22</li>
-                                                        <li class="mm">09</li>
-                                                        <li class="aaaa">2014</li>
-                                                    </ul>
-                                                    <p class="media-comment">
-                                                        Classy!
-                                                    </p>
-                                                    <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" id="add-comment">
-                        <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
-                            <div class="form-group">
-                                <label for="email" class="col-sm-2 control-label">Comment</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">http://</div>
-                                        <input type="text" class="form-control" name="uploadMedia" id="uploadMedia">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane" id="account-settings">
-                        <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
-                            <div class="form-group">
-                                <label for="avatar" class="col-sm-2 control-label">Avatar</label>
-                                <div class="col-sm-10">
-                                    <div class="custom-input-file">
-                                        <label class="uploadPhoto">
-                                            Edit
-                                            <input type="file" class="change-avatar" name="avatar" id="avatar">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Vilma palma">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nickName" class="col-sm-2 control-label">Nick name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nickName" id="nickName" placeholder="Vilma">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="vilma@mail.com">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="newPassword" class="col-sm-2 control-label">New password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="newPassword" id="newPassword">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirmPassword" class="col-sm-2 control-label">Confirm password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit">Save changes</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> ارسال </button>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-
+        </form>
+    </div>*@

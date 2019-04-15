@@ -82,6 +82,33 @@ h1 {
     font-size: 2em;
 }
 
+
+.lang-bar {
+    border-right: 10px solid #8c0145;
+}
+
+.left-corner {
+    left: 0;
+    bottom: 0;
+    border-bottom: 4px solid #8c0145;
+    border-left: 4px solid #8c0145;
+    border-radius: 0 0 0 4px;
+}
+
+.right-corner {
+    right: 0;
+    top: 0;
+    border-top: 4px solid #8c0145;
+    border-right: 4px solid #8c0145;
+    border-radius: 0 4px 0;
+}
+
+.left-corner, .right-corner {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+}
+
 abbr[title] {
     border-bottom: 1px dotted;
 }
@@ -233,8 +260,6 @@ table {
 
 .bouton-image {
     content: "";
-    width: 185px;
-    height: 185px;
     display: inline-block;
     margin-right: 5px;
     vertical-align: text-top;
@@ -243,16 +268,34 @@ table {
     background-repeat: no-repeat;
 }
 
+.like {
+    background-image: url(/Content/images/like1.jpg);
+    width: 50px;
+    height: 60px;
+}
+
+.Unlike {
+    background-image: url(/Content/images/Unlike1.jpg);
+    width: 15px;
+    height: 15px;
+}
+
 .icondownload {
     background-image: url(/Content/images/iconShowDetelis/app-1.png);
+    width: 185px;
+    height: 185px;
 }
 
 .iconShareing {
     background-image: url(/Content/images/iconShowDetelis/app-2.png);
+    width: 185px;
+    height: 185px;
 }
 
 .iconCountComment {
     background-image: url(/Content/images/iconShowDetelis/app-3.png);
+    width: 185px;
+    height: 185px;
 }
 
 .iconSize {
@@ -514,8 +557,9 @@ cite {
 }
 
 .text-white {
-   color:#fff;
+    color: #fff;
 }
+
 h1,
 h2,
 h3,
@@ -2435,45 +2479,46 @@ textarea.input-lg {
     background-color: #9B004C;
     border-color: #9B004C;
 }
-.bg{
+
+.bg {
     background-color: #9B004C;
-    width:100%;
+    width: 100%;
 }
 
-    .btn-success:hover,
-    .btn-success:focus,
-    .btn-success:active,
-    .btn-success.active,
-    .open .dropdown-toggle.btn-success {
-        color: #ffffff;
-        background-color: #47a447;
-        border-color: #398439;
-    }
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+    color: #ffffff;
+    background-color: #47a447;
+    border-color: #398439;
+}
 
-    .btn-success:active,
-    .btn-success.active,
-    .open .dropdown-toggle.btn-success {
-        background-image: none;
-    }
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+    background-image: none;
+}
 
-    .btn-success.disabled,
-    .btn-success[disabled],
-    fieldset[disabled] .btn-success,
-    .btn-success.disabled:hover,
-    .btn-success[disabled]:hover,
-    fieldset[disabled] .btn-success:hover,
-    .btn-success.disabled:focus,
-    .btn-success[disabled]:focus,
-    fieldset[disabled] .btn-success:focus,
-    .btn-success.disabled:active,
-    .btn-success[disabled]:active,
-    fieldset[disabled] .btn-success:active,
-    .btn-success.disabled.active,
-    .btn-success[disabled].active,
-    fieldset[disabled] .btn-success.active {
-        background-color: #5cb85c;
-        border-color: #4cae4c;
-    }
+.btn-success.disabled,
+.btn-success[disabled],
+fieldset[disabled] .btn-success,
+.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus,
+.btn-success.disabled:active,
+.btn-success[disabled]:active,
+fieldset[disabled] .btn-success:active,
+.btn-success.disabled.active,
+.btn-success[disabled].active,
+fieldset[disabled] .btn-success.active {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
 
 .btn-info {
     color: #ffffff;

@@ -23,6 +23,9 @@ namespace AppStore.UI
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/slider-boxes.js",
                       "~/Scripts/slick.min.js",
+                      "~/Scripts/datatables.js",
+                    //  "~/Scripts/dataTables.bootstrap.js",
+                     // "~/Scripts/jquery.dataTables.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -30,7 +33,9 @@ namespace AppStore.UI
                       "~/Content/slider-boxes.scss",
                       "~/Content/slick.min.css",
                       "~/Content/bootstrap-4-utilities.css",
-                      //"~/Content/font-awesome.min.css",
+                      "~/Content/datatables.css",
+                      "~/Content/font-awesome/font-awesome.min.css",
+                      //"~/Content/dataTables.bootstrap.css",
                       "~/Content/site.css"));
         }
     }
