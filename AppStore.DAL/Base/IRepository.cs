@@ -9,6 +9,7 @@ using AppStore.Models;
 
 namespace AppStore.DAL
 {
+    
     public interface IRepository<TEntity> : IDisposable where TEntity : class
     {
         IQueryable<TEntity> Fetch(out OperationResult rState);
