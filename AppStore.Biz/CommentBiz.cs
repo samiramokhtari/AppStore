@@ -17,5 +17,15 @@ namespace AppStore.Biz
                return unit.CommentReppository.GetAllItems.Where(x => x.Product.Id == id).ToList();
             }
         }
+
+        public OperationResult Create(Comment model)
+        {
+            OperationResult rState = null;
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                uow.CommentReppository.Insert(model, out rState);
+                return rState;
+            }
+        }
     }
 }
