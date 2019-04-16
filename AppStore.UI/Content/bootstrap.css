@@ -84,7 +84,10 @@ h1 {
 
 
 .lang-bar {
-    border-right: 10px solid #8c0145;
+    border-right: 10px solid #8c0145 !important;
+}
+.lang-bar-top {
+    border-top: 10px solid #8c0145 !important;
 }
 
 .left-corner {
@@ -270,14 +273,14 @@ table {
 
 .like {
     background-image: url(/Content/images/like1.jpg);
-    width: 50px;
-    height: 60px;
+    width: 25px;
+    height: 28px;
 }
 
 .Unlike {
     background-image: url(/Content/images/Unlike1.jpg);
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
 }
 
 .icondownload {
@@ -300,6 +303,8 @@ table {
 
 .iconSize {
     background-image: url(/Content/images/iconShowDetelis/app-4.png);
+    width: 185px;
+    height: 185px;
 }
 
 @media print {
