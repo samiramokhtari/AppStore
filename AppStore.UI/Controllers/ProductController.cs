@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,23 +13,31 @@ namespace AppStore.UI.Controllers
         // GET: Product
         public ActionResult Index()
         {
+
             return View();
         }
 
         public ActionResult Get(int id)
         {
-            return View("Index");
+
+            var sampleProduct = new Biz.ProductBiz().Get(id);
+            
+            return View("SmallProduct",sampleProduct);
         }
 
 
         public ActionResult Manage()
         {
-            return View();
+            return View(GetList());
         }
 
         public ActionResult List()
         {
-            return View();
+            return View(GetList());
+        }
+        private List<Product> GetList()
+        {
+            return new Biz.ProductBiz().GetAll();
         }
     }
 }

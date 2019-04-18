@@ -1,5 +1,6 @@
-﻿@*@model AppStore.Models.Product
-    <div class="small-product">
+﻿@model AppStore.Models.Product
+
+@* <div class="small-product">
         <img src="/api/files/@Model.Logo.Id" alt="@Model.Name logo" class="img-rounded"   />
 
         <span class="small-span">@Model.Name</span>
@@ -34,7 +35,7 @@
                         </div>
 
                         <div class="col-lg-2">
-                            <h1 class="product-name"><strong>اینستاگرام</strong></h1><h4><small>استودیوهزارتو</small></h4>
+                            <h1 class="product-name"><strong>@Model.Name</strong></h1><h4><small>@Model.Name</small></h4>
                         </div>
                         <div class="col-lg-2">
                             <img class="img-responsive" src="~/Content/images/iconShowDetelis/app-5.png" width="185" height="185">
@@ -114,7 +115,7 @@
                                                             <button class="btn bouton-image Unlike  list-inline"></button>
                                                             <button class="btn bouton-image Unlike  list-inline"></button>
                                                             <button class="btn bouton-image like list-inline"></button>
-                                                            <button class="btn bouton-image like list-inline"></button>  
+                                                            <button class="btn bouton-image like list-inline"></button>
                                                         </div>
                                                         <h4 class="media-heading text-uppercase reviews">حسن ایوبی</h4>
                                                         <ul class="media-date text-uppercase reviews list-inline">
@@ -123,7 +124,7 @@
                                                             <li class="aaaa">1398</li>
                                                         </ul>
                                                         <p class="media-comment">
-                                                            عالی بود. بنظرم امکاناتش بیشتر باشه عالیه
+                                                            
                                                         </p>
 
                                                         <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
@@ -143,7 +144,7 @@
                                                             <button class="btn bouton-image like  list-inline"></button>
                                                             <button class="btn bouton-image like  list-inline"></button>
                                                             <button class="btn bouton-image like list-inline"></button>
-                                                            <button class="btn bouton-image like list-inline"></button>  
+                                                            <button class="btn bouton-image like list-inline"></button>
                                                         </div>
 
                                                         <h4 class="media-heading text-uppercase reviews">نازنین مرادزاده</h4>
@@ -172,7 +173,7 @@
                 </div>
             </div>
 
-            
+
 
         </div>
     </div>
