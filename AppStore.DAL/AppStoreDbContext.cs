@@ -1,5 +1,6 @@
 namespace AppStore.DAL
 {
+    using Migrations;
     using AppStore.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
@@ -12,6 +13,7 @@ namespace AppStore.DAL
         public AppStoreDbContext()
             : base("name=AppStoreDbContext", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AppStoreDbContext, Configuration>());
         }
 
         public static AppStoreDbContext Create()
