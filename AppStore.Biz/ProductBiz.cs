@@ -12,38 +12,14 @@ namespace AppStore.Biz
     {
         public List<Product> GetAll()
         {
-            // todo: uncomment sample data lines
-            List<Product> result = new List<Product>();
-            result.Add(new Product() { Id = 1, Group = new Group() { Id = 1 },DateTime = DateTime.Now,Price = 0,FileSize = "2k",Name="قورمه", Logo = new ProductImage() { Id = 1 } });
-            result.Add(new Product() { Id = 2, Group = new Group() { Id = 1 },DateTime = DateTime.Now,Price = 0,FileSize = "2k",Name="پتزای آنلاین" , Logo = new ProductImage() { Id = 2 } });
-            result.Add(new Product() { Id = 3, Group = new Group() { Id = 1 },DateTime = DateTime.Now,Price = 0,FileSize = "2k",Name="بانو" , Logo = new ProductImage() { Id = 3 } });
-            result.Add(new Product() { Id = 4, Group = new Group() { Id = 1 }, DateTime = DateTime.Now,Price = 0,FileSize = "2k",Name="فلفل" , Logo = new ProductImage() { Id = 4 } });
-            result.Add(new Product() { Id = 5, Group = new Group() { Id = 1 }, DateTime = DateTime.Now,Price = 0,FileSize = "2k",Name="قورمه" , Logo = new ProductImage() { Id = 5 } });
-            result.Add(new Product() { Id = 6, Group = new Group() { Id = 2 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "هواشناسی 4" , Logo = new ProductImage() { Id = 5 } });
-            result.Add(new Product() { Id = 7, Group = new Group() { Id = 2 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "کیفیت هوای تهران" , Logo = new ProductImage() { Id = 6 } });
-            result.Add(new Product() { Id = 8, Group = new Group() { Id = 2 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "هواشناسی" , Logo = new ProductImage() { Id = 7 } });
-            result.Add(new Product() { Id = 9, Group = new Group() { Id = 2 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "Transparent clock & Weather" , Logo = new ProductImage() { Id = 8 } });
-            result.Add(new Product() { Id = 10, Group = new Group() { Id = 6 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "تیر اندازی" , Logo = new ProductImage() { Id = 9 } });
-            result.Add(new Product() { Id = 11, Group = new Group() { Id = 6 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "مبارز" , Logo = new ProductImage() { Id = 10 } });
-            result.Add(new Product() { Id = 12, Group = new Group() { Id = 6 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "بازی تکاور" , Logo = new ProductImage() { Id = 11 } });
-            result.Add(new Product() { Id = 13, Group = new Group() { Id = 6 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "فرمانده" , Logo = new ProductImage() { Id = 12 } });
-            return result;
-
-            // real code
             using (UnitOfWork uow = new UnitOfWork())
             {
                 return uow.ProductRepository.GetAllItems.ToList();
             }
-
-
         }
 
         public Product Get(int id)
         {
-            // todo: uncomment sample data lines
-            return new Product() { Id = 1, Group = new Group() { Id = 1 }, DateTime = DateTime.Now, Price = 0, FileSize = "2k", Name = "قورمه", Logo = new ProductImage() { Id = 1 } };
-
-            // real code
             using (UnitOfWork uow = new UnitOfWork())
             {
                 return uow.ProductRepository.GetAllItems.FirstOrDefault(x => x.Id == id);
@@ -154,7 +130,7 @@ namespace AppStore.Biz
 
             if (obj != null)
             {
-              //  unit.DeviceSettingRepository.Delete(obj, out state);
+                //  unit.DeviceSettingRepository.Delete(obj, out state);
                 LogBiz<Product> log = new LogBiz<Product>();
                 new LogSystemBiz().Insert(new LogSystemModel()
                 {
