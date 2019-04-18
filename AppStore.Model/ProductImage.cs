@@ -16,7 +16,7 @@ namespace AppStore.Models
     {
         public int Id { get; set; }
         public ImageType  Type { get; set; }
-        //public Image Image { get; set; }
+        public string ImageName { get; set; }
         public int ProductId { get; set; }
     }
 }
