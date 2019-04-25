@@ -29,5 +29,7 @@ namespace AppStore.UI.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AppStore.Models.Product> Products { get; set; }
     }
 }
