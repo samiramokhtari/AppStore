@@ -79,7 +79,7 @@ namespace AppStore.Biz
         }
         */
 
-        public string Edit(Product model, string userId)
+        public string Edit(Product model, User user)
         {
 
             OperationResult state = null;
@@ -100,7 +100,10 @@ namespace AppStore.Biz
                 string afterChange = log.GetProperites(obj);
 
                 // unit.ProductRepository.Update(obj, out state);
-
+                using (UnitOfWork uow = new UnitOfWork())
+                {
+                    uow.ProductRepository.Update(obj, out state);
+                }
 
                 new LogSystemBiz().Insert(new LogSystemModel()
                 {
@@ -109,7 +112,7 @@ namespace AppStore.Biz
                     BeforeChange = beforeChange,
                     DateTime = DateTime.Now,
                     ErrorMessage = (state.Succeed ? " " : state.Message + " - " + state.Exception.StackTrace),
-                    UserId = userId
+                    UserId = user.Id.ToString()
                 });
 
                 if (state.Succeed)
@@ -123,14 +126,19 @@ namespace AppStore.Biz
 
 
 
-        public string Delete(int id, string userId)
+        public string Delete(Product model, User user)
         {
             OperationResult state = null;
-            Product obj = GetAll().Where(m => m.Id == id).FirstOrDefault();
+            Product obj = GetAll().Where(m => m.Id == model.Id).FirstOrDefault();
 
             if (obj != null)
             {
                 //  unit.DeviceSettingRepository.Delete(obj, out state);
+                using (UnitOfWork uow = new UnitOfWork())
+                {
+                    uow.ProductRepository.Delete(obj, out state);
+                }
+
                 LogBiz<Product> log = new LogBiz<Product>();
                 new LogSystemBiz().Insert(new LogSystemModel()
                 {
@@ -139,7 +147,7 @@ namespace AppStore.Biz
                     BeforeChange = "",
                     DateTime = DateTime.Now,
                     ErrorMessage = (state.Succeed ? " " : state.Message + " - " + state.Exception.StackTrace),
-                    UserId = userId
+                    UserId = user.Id.ToString()
                 });
 
                 if (state.Succeed)

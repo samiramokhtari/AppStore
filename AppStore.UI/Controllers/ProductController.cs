@@ -51,7 +51,31 @@ namespace AppStore.UI.Controllers
         {
             return View(new Product());
         }
-        
 
+        [HttpPost]
+        public ActionResult Edit(Product p, User u)
+        {
+            new Biz.ProductBiz().Edit(p, u);
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Product p, User u)
+        {
+            new Biz.ProductBiz().Delete(p, u);
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete()
+        { 
+            return View();
+        }
     }
 }
