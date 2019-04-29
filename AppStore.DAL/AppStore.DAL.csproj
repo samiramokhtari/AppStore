@@ -97,7 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppStoreDbContext.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Base\BaseBs.cs" />
     <Compile Include="Base\BaseViewBs.cs" />
     <Compile Include="Base\DataRepository.cs" />
