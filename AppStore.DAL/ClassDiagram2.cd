@@ -32,6 +32,9 @@
   </Class>
   <Class Name="AppStore.DAL.AppStoreDbContext">
     <Position X="0.5" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAIAGAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAIEQ=</HashCode>
       <FileName>AppStoreDbContext.cs</FileName>
