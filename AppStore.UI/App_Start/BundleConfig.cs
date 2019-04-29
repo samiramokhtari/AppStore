@@ -21,10 +21,21 @@ namespace AppStore.UI
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/slider-boxes.js",
+                      "~/Scripts/slick.min.js",
+                      "~/Scripts/datatables.js",
+                    //  "~/Scripts/dataTables.bootstrap.js",
+                     // "~/Scripts/jquery.dataTables.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                       "~/Content/bootstrap.css",
+                      "~/Content/slider-boxes.scss",
+                      "~/Content/slick.min.css",
+                      "~/Content/bootstrap-4-utilities.css",
+                      "~/Content/datatables.css",
+                      "~/Content/font-awesome/font-awesome.min.css",
+                      //"~/Content/dataTables.bootstrap.css",
                       "~/Content/site.css"));
         }
     }

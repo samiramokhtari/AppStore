@@ -1,10 +1,10 @@
-﻿@model AppStore.Models.Product
+﻿@*@model AppStore.Models.Product
 <div class="linear-product">
-    <img src="/api/files/@Model.Logo.Id" alt="@Model.Name logo" />
+    <img src="/api/files/@Model.Logo.Id" alt="@Model.Name logo" class="img-thumbnail" />
     @*<img src="@Url.RouteUrl("DefaultApi", new { controller = "Files", id = Model.Logo.Id })" alt="@Model.Name logo" />*@
     <div class="">
         <span class="">@Model.Name</span>
         <span class="">@Model.FileSize</span>
         <span class="">@Model.Rate.ToString("#.#")</span>
     </div>
-</div>
+</div>*@

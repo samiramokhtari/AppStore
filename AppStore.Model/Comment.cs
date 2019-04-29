@@ -13,5 +13,6 @@ namespace AppStore.Models
         public DateTime DateTime { get; set; }
         public int UserRate { get; set; }
         public Product Product { get; set; }
+        public string Description { get; set; }
     }
 }

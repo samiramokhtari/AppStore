@@ -1,0 +1,44 @@
+﻿@model List<AppStore.Models.Product>
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th class="th-sm">
+                نام
+
+            </th>
+            <th class="th-sm">
+                قیمت
+
+            </th>
+            <th class="th-sm">
+                سایز
+
+            </th>
+            <th class="th-sm">
+                تاریخ
+
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+       { 
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.FileSize</td>
+            <td>@item.DateTime</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
+}

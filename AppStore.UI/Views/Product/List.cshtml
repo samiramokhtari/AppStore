@@ -1,0 +1,26 @@
+﻿@model List<AppStore.Models.Product>
+
+<div class="panel-body">
+
+    @foreach (var item in Model)
+    {
+        <div class="row  well well-lg lang-bar">
+            <div class="col-lg-8">
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-install btn-block">
+                        <h3>نصب</h3>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="col-lg-2">
+                <h1 class="product-name"><strong>@item.Name</strong></h1><h4><small>@item.Name</small></h4>
+            </div>
+            <div class="col-lg-2">
+                <img class="img-responsive" src="~/Content/images/iconShowDetelis/app-5.png" width="185" height="185">
+            </div>
+        </div>
+
+    }
+</div>

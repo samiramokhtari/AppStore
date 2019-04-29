@@ -17,5 +17,8 @@ namespace AppStore.Models
         public ProductImage Logo { get; set; }
         public List<Comment> Comments { get; set; }
         public double Rate { get; set; }
+        public int Version { get; set; }
+        public string Developer { get; set; }
+        public string License { get; set; }
     }
 }
