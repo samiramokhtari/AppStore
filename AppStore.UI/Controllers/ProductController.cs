@@ -21,8 +21,8 @@ namespace AppStore.UI.Controllers
         {
 
             var sampleProduct = new Biz.ProductBiz().Get(id);
-            
-            return View("SmallProduct",sampleProduct);
+
+            return View("SmallProduct", sampleProduct);
         }
 
 
@@ -39,5 +39,19 @@ namespace AppStore.UI.Controllers
         {
             return new Biz.ProductBiz().GetAll();
         }
+        [HttpPost]
+        public ActionResult Create(Product p)
+        {
+            new Biz.ProductBiz().Create(p);
+            return View();
+
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View(new Product());
+        }
+
+
     }
 }

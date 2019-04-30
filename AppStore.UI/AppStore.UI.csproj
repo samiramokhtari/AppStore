@@ -190,15 +190,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904141041285_InitialCreate.cs" />
-    <Compile Include="Migrations\201904141041285_InitialCreate.Designer.cs">
-      <DependentUpon>201904141041285_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904251204372_sajjadMigration.cs" />
-    <Compile Include="Migrations\201904251204372_sajjadMigration.Designer.cs">
-      <DependentUpon>201904251204372_sajjadMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -316,15 +307,13 @@
     <Content Include="Views\Product\Manage.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\AddProduct\Create.cshtml" />
-    <Content Include="Views\AddProduct\Delete.cshtml" />
-    <Content Include="Views\AddProduct\Details.cshtml" />
-    <Content Include="Views\AddProduct\Edit.cshtml" />
-    <Content Include="Views\AddProduct\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CommentData\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -349,14 +338,6 @@
       <Project>{6f56379d-38d4-47fe-9e3d-8338a0302ded}</Project>
       <Name>AppStore.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904141041285_InitialCreate.resx">
-      <DependentUpon>201904141041285_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904251204372_sajjadMigration.resx">
-      <DependentUpon>201904251204372_sajjadMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
