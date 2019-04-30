@@ -10,7 +10,7 @@ namespace AppStore.UI.Controllers
     {
         public ActionResult Index()
         {
-            var sampleProducts= new Biz.ProductBiz().GetAll();
+            var sampleProducts = new Biz.ProductBiz().GetAll();
 
             return View(sampleProducts);
         }

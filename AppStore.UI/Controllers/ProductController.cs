@@ -39,13 +39,14 @@ namespace AppStore.UI.Controllers
         {
             return new Biz.ProductBiz().GetAll();
         }
+
         [HttpPost]
         public ActionResult Create(Product p)
         {
             new Biz.ProductBiz().Create(p);
-            return View();
-
+            return View(p);
         }
+
         [HttpGet]
         public ActionResult Create()
         {
