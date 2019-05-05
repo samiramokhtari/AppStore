@@ -6,7 +6,7 @@ namespace AppStore.DAL.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    // [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
     public sealed partial class fristConfig : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(fristConfig));

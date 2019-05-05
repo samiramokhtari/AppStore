@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppStore.Models
 {
@@ -14,9 +15,11 @@ namespace AppStore.Models
     }
     public class ProductImage
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public ImageType  Type { get; set; }
         public string ImageName { get; set; }
-        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        
     }
 }

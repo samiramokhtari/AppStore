@@ -51,6 +51,7 @@ namespace AppStore.DAL
         }
         public DbContext GetDbContext()
         {
+            this.Repository.Context.Configuration.LazyLoadingEnabled = false;
             return this.Repository.Context;
         }
 

@@ -10,7 +10,7 @@ namespace AppStore.Biz
    public class SubGroupBiz
     {
 
-
+/*
         public List<SubGroup> GetListSubGroup()
         {
             List<SubGroup> result = new List<SubGroup>();
@@ -23,5 +23,6 @@ namespace AppStore.Biz
             result.Add(new SubGroup() { Id = 3, Name = "رستوران", GroupId = 1 });
             return result; 
         }
+        */
     }
 }

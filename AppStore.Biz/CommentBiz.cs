@@ -14,7 +14,8 @@ namespace AppStore.Biz
         {
             using (UnitOfWork unit = new UnitOfWork())
             {
-               return unit.CommentReppository.GetAllItems.Where(x => x.Product.Id == id).ToList();
+                return null;
+             //  return unit.CommentReppository.GetAllItems.Where(x => x.Products== id).ToList();
             }
         }
 

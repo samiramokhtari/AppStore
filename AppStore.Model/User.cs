@@ -16,5 +16,7 @@ namespace AppStore.Models
         public string Address { get; set; }
         public string PhoneNumer { get; set; }
         public string MobileNumber { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<UserDownload> UserDownloads { get; set; }
     }
 }

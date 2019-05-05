@@ -102,14 +102,6 @@
     <Compile Include="Base\DataRepository.cs" />
     <Compile Include="Base\IRepository.cs" />
     <Compile Include="Base\UnitOfWork.cs" />
-    <Compile Include="Migrations\201904090804072_fristConfig.cs" />
-    <Compile Include="Migrations\201904090804072_fristConfig.Designer.cs">
-      <DependentUpon>201904090804072_fristConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904090950111_Update_Product.cs" />
-    <Compile Include="Migrations\201904090950111_Update_Product.Designer.cs">
-      <DependentUpon>201904090950111_Update_Product.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -127,14 +119,6 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904090804072_fristConfig.resx">
-      <DependentUpon>201904090804072_fristConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904090950111_Update_Product.resx">
-      <DependentUpon>201904090950111_Update_Product.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

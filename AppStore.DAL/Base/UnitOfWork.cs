@@ -10,7 +10,7 @@ namespace AppStore.DAL
 {
     public class UnitOfWork : IDisposable
     {
-        AppStoreDbContext context = new AppStoreDbContext();
+        static AppStoreDbContext context = new AppStoreDbContext();
 
         private BaseBs<Product> productRepository;
 
@@ -21,7 +21,7 @@ namespace AppStore.DAL
 
                 if (productRepository == null)
                     productRepository = new BaseBs<Product>(context);
-
+                
 
                 return productRepository;
             }
