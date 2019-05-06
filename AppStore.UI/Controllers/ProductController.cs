@@ -44,7 +44,7 @@ namespace AppStore.UI.Controllers
         public ActionResult Create(Product p)
         {
             new Biz.ProductBiz().Create(p);
-            return View(p);
+            return View(Get(p.Id));
         }
 
         [HttpGet]
