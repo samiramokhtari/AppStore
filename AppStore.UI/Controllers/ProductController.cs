@@ -49,20 +49,30 @@ namespace AppStore.UI.Controllers
             if (Request.Files.Count > 0)
             {
                 p.ProductImages = new List<ProductImage>();
-                string path = Server.MapPath("~/Content/images/iconProduct/");
-                int counter = 0;
+                string pathImage = Server.MapPath("~/Content/images/iconProduct/");
+                string pathFile = Server.MapPath("~/Content/Downloads/");
+                int counterIamge = 0;
+                int counterFile = 0;
+
+                foreach (HttpPostedFileBase file in Request.Files.GetMultiple("FileUpload"))
+                {
+                    file.SaveAs(pathFile + file.FileName);
+                    p.FileUpload = file.FileName;
+                    counterFile++;
+                }
+
                 foreach (HttpPostedFileBase file in Request.Files.GetMultiple("Logo"))
                 {
                     string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                    file.SaveAs(path + fileName);
+                    file.SaveAs(pathImage + fileName);
 
                     p.ProductImages.Add(new ProductImage()
                     {
                         ImageName = fileName,
-                        Type = counter == p.LogoIndex ? ImageType.Logo : ImageType.Details
+                        Type = counterIamge == p.LogoIndex ? ImageType.Logo : ImageType.Details
                     });
 
-                    counter++;
+                    counterIamge++;
                 }
             }
 
@@ -85,12 +95,6 @@ namespace AppStore.UI.Controllers
                             Text = x.Name
                         });
 
-            //ViewBag.TypeImages = new Biz.ProductImageBiz().GetAll().Select(x =>
-            //            new SelectListItem
-            //            {
-            //                Value = x.Id.ToString(),
-            //                Text = Enum.Parse(typeof(ImageType), x.Type.ToString()).ToString()
-            //            });
             return View(new Product());
         }
 
@@ -99,6 +103,22 @@ namespace AppStore.UI.Controllers
         {
             new Biz.ProductBiz().Edit(p, u);
             return View();
+        }
+
+        public ActionResult Download(int productId)
+        {
+            OperationResult result = new Biz.DownloadBiz().Create(new UserDownload() { Product_Id = productId });
+            if (result.Succeed)
+            {
+                string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\Downloads\\";
+                string fileName = new Biz.ProductBiz().GetAll().Where(x => x.Id == productId).Select(x => x.FileUpload).FirstOrDefault();
+                //TODO : Name File Download
+                byte[] fileBytes = System.IO.File.ReadAllBytes(path +fileName);
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+
+            }
+            return File(new byte[0] { }, System.Net.Mime.MediaTypeNames.Application.Octet, "notFound.txt");
+
         }
 
         [HttpGet]
@@ -116,7 +136,7 @@ namespace AppStore.UI.Controllers
 
         [HttpGet]
         public ActionResult Delete()
-        { 
+        {
             return View();
         }
     }

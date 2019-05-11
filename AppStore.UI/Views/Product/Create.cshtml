@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        
+
     </div>
     <div class="form-horizontal col-lg-6">
 
@@ -81,63 +81,73 @@
                 @Html.ValidationMessageFor(model => model.License, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.Label("FileUpload", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="divFileUplad" style="margin-bottom: 10px;">
+                    <input type="file" name="FileUpload" id="FileUpload">
+                </div>
+
+            </div>
+        </div>
         <div class="form-group">
             @Html.Label("Images", new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <button id="btnAdd" class="btn btn-info" type="button">Add</button>
+            <div class="col-md-10">
+                <button id="btnAdd" class="btn btn-info" type="button">Add</button>
 
-                    <div id="AddImage">
-                        <div class="divImage" style="margin-bottom: 10px;">
-                            <input type="file" name="Logo" id="Logo">
-                            <input type="radio" name="logoIndex" value="0" checked /> لوگو
-                            <button class="btnRemove btn btn-danger" type="button">remove</button>
-                        </div>
+                <div id="AddImage">
+                    <div class="divImage" style="margin-bottom: 10px;">
+                        <input type="file" name="Logo" id="Logo">
+                        <input type="radio" name="logoIndex" value="0" checked /> لوگو
+                        <button class="btnRemove btn btn-danger" type="button">remove</button>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
+
+
+
+
+    </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-success" />
         </div>
     </div>
-        @* } *@
-    </form>
+    @* } *@
+</form>
 
 
-    @Html.ActionLink("Back to List", "Index")
+@Html.ActionLink("Back to List", "Index")
 
 
-    @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jquery")
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".btnRemove").hide();
-            $("#btnAdd").click(function () {
-                $(".divImage:first").clone().appendTo("#AddImage");
-                $(".divImage:last .btnRemove").show();
-                if ($(".divImage").length == 2) {
-                    $(':radio[name=logoIndex]:eq(0)').prop('ckecked', 'checked');
-                }
-                reindexLogo();
-            });
-            $('body').on('click', '.btnRemove', function () {
-                $(this).closest('.divImage').remove();
-                reindexLogo();
-            });
-
-            function reindexLogo() {
-                $(':radio[name=logoIndex]').each(function (i, item) {
-                    $(item).val(i);
-                });
-                if ($(':radio[name=logoIndex]:checked').length == 0) {
-                    $(':radio[name=logoIndex]:eq(0)').prop('ckecked', 'checked');
-                }
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".btnRemove").hide();
+        $("#btnAdd").click(function () {
+            $(".divImage:first").clone().appendTo("#AddImage");
+            $(".divImage:last .btnRemove").show();
+            if ($(".divImage").length == 2) {
+                $(':radio[name=logoIndex]:eq(0)').prop('ckecked', 'checked');
             }
+            reindexLogo();
         });
-    </script>
+        $('body').on('click', '.btnRemove', function () {
+            $(this).closest('.divImage').remove();
+            reindexLogo();
+        });
+
+        function reindexLogo() {
+            $(':radio[name=logoIndex]').each(function (i, item) {
+                $(item).val(i);
+            });
+            if ($(':radio[name=logoIndex]:checked').length == 0) {
+                $(':radio[name=logoIndex]:eq(0)').prop('ckecked', 'checked');
+            }
+        }
+    });
+</script>
