@@ -29,6 +29,9 @@ namespace AppStore.Biz
 
         public OperationResult Create(Product model)
         {
+            if (model == null)
+                return null;
+            model.DateTime = DateTime.Now;
             OperationResult rState = null;
             using (UnitOfWork uow = new UnitOfWork())
             {

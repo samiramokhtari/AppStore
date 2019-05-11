@@ -26,10 +26,35 @@ namespace AppStore.DAL
                 return productRepository;
             }
         }
+        private BaseBs<Group> groupRepository;
+
+        public BaseBs<Group> GroupRepository
+        {
+            get
+            {
+
+                if (groupRepository == null)
+                    groupRepository = new BaseBs<Group>(context);
 
 
+                return groupRepository;
+            }
+        }
 
 
+        private BaseBs<ProductImage> productImageRepository;
+        public BaseBs<ProductImage> ProductImageRepository
+        {
+            get
+            {
+
+                if (productImageRepository == null)
+                    productImageRepository = new BaseBs<ProductImage>(context);
+
+
+                return productImageRepository;
+            }
+        }
         private BaseBs<Comment> commentRepository;
 
         public BaseBs<Comment> CommentReppository
