@@ -11,10 +11,14 @@ namespace AppStore.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public User User { get; set; }
+        [ForeignKey("User")]
+        public int User_Id { get; set; }
+        public virtual User User{ get; set; }
         public DateTime DateTime { get; set; }
         public int UserRate { get; set; }
-        public Product Product { get; set; }
+        [ForeignKey("Product")]
+        public int Product_Id { get; set; }
+        public virtual  Product Product { get; set; }
         public string Description { get; set; }
     }
 }

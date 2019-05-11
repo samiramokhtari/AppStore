@@ -34,5 +34,15 @@ namespace AppStore.Biz
                 return rState;
             }
         }
+
+
+        public int Get(int ProductId)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                return uow.UserDownloadRepository.GetAllItems.Count(x => x.Product_Id == ProductId);
+            }
+        }
+
     }
 }

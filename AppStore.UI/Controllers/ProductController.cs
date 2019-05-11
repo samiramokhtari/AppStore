@@ -1,4 +1,5 @@
 ﻿using AppStore.Models;
+using AppStore.UI.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,10 +22,13 @@ namespace AppStore.UI.Controllers
 
         public ActionResult Get(int id)
         {
+            ShowProductDetiels result = new ShowProductDetiels();
+            result.Product = new Biz.ProductBiz().Get(id);
+            int downloads = new Biz.DownloadBiz().Get(id);
+            int comments = new Biz.CommentBiz().CommnetsCount(id);
 
-            var sampleProduct = new Biz.ProductBiz().Get(id);
-
-            return View("SmallProduct", sampleProduct);
+            result.Counts = new CountsViewModel() { CommentsCount = comments, DownloadsCount = downloads, RateCounts = 0 };
+            return View("SmallProduct", result);
         }
 
 
@@ -58,6 +62,7 @@ namespace AppStore.UI.Controllers
                 {
                     file.SaveAs(pathFile + file.FileName);
                     p.FileUpload = file.FileName;
+                    p.FileSize = getFileSize(file.InputStream.Length);
                     counterFile++;
                 }
 
@@ -83,6 +88,21 @@ namespace AppStore.UI.Controllers
             return View(p);
         }
 
+        private string getFileSize(double len)
+        {
+            string[] sizes = { "B", "KB", "MB", "GB", "TB" };
+            int order = 0;
+            while (len >= 1024 && order < sizes.Length - 1)
+            {
+                order++;
+                len = len / 1024;
+            }
+
+            // Adjust the format string to your preferences. For example "{0:0.#}{1}" would
+            // show a single decimal place, and no space.
+            return String.Format("{0:0.##}{1}", len, sizes[order]);
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -105,21 +125,6 @@ namespace AppStore.UI.Controllers
             return View();
         }
 
-        public ActionResult Download(int productId)
-        {
-            OperationResult result = new Biz.DownloadBiz().Create(new UserDownload() { Product_Id = productId });
-            if (result.Succeed)
-            {
-                string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\Downloads\\";
-                string fileName = new Biz.ProductBiz().GetAll().Where(x => x.Id == productId).Select(x => x.FileUpload).FirstOrDefault();
-                //TODO : Name File Download
-                byte[] fileBytes = System.IO.File.ReadAllBytes(path +fileName);
-                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
-
-            }
-            return File(new byte[0] { }, System.Net.Mime.MediaTypeNames.Application.Octet, "notFound.txt");
-
-        }
 
         [HttpGet]
         public ActionResult Edit()

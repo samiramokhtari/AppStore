@@ -1,4 +1,4 @@
-﻿@model AppStore.Models.Product
+﻿@model AppStore.UI.Models.ShowProductDetiels
 
 <div class="direction-rtl">
     <div class="row">
@@ -28,11 +28,11 @@
                         </div>
 
                         <div class="col-lg-2">
-                            <h1 class="product-name"><strong>@Model.Name</strong></h1><h4><small>@Model.Name</small></h4>
-                            
-                         </div>
+                            <h1 class="product-name"><strong>@Model.Product.Name</strong></h1><h4><small>@Model.Product.Name</small></h4>
+
+                        </div>
                         <div class="col-lg-2">
-                            <img class="img-responsive" src="~/Content/images/iconProduct/@(Model.Logo == null ? "default.png" : Model.Logo.ImageName)" width="185" height="185">
+                            <img class="img-responsive" src="~/Content/images/iconProduct/@(Model.Product.Logo == null ? "default.png" : Model.Product.Logo.ImageName)" width="185" height="185">
                         </div>
                     </div>
                     <hr>
@@ -42,7 +42,7 @@
                             <div class="testimonial w-100 h-100  p-3 text-center">
                                 <button class="btn bouton-image icondownload"></button>
                                 <div class="separator">&nbsp;</div>
-                                <h4 class="message text-center text-gray">10M</h4>
+                                <h4 class="message text-center text-gray">@Model.Counts.DownloadsCount</h4>
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -50,7 +50,7 @@
                             <div class="testimonial w-100 h-100  p-3 text-center">
                                 <button class="btn bouton-image iconSize"></button>
                                 <div class="separator">&nbsp;</div>
-                                <h4 class="message text-center text-gray">22,000,000</h4>
+                                <h4 class="message text-center text-gray">@Model.Counts.CommentsCount</h4>
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -58,7 +58,7 @@
                             <div class="testimonial w-100 h-100  p-3 text-center">
                                 <button class="btn bouton-image iconCountComment"></button>
                                 <div class="separator">&nbsp;</div>
-                                <h4 class="message text-center text-gray">4.8</h4>
+                                <h4 class="message text-center text-gray">@Model.Counts.RateCounts</h4>
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -181,13 +181,13 @@
 
                         <label><span class="text-right"> نظر</span></label>
                         <div class="col-sm-12">
-                            <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                            <textarea class="form-control comment" name="addComment" id="addComment" rows="5"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> ارسال </button>
+                            <button class="btn btn-success btn-circle text-uppercase btn-comment" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> ارسال </button>
                         </div>
                     </div>
                 </form>
@@ -209,10 +209,18 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-
-        
         $('body').on('click', '.btn-install', function () {
-            location = '@Url.Action("Download", new { productId = Model.Id })'
+            location = '@Url.Action("Download", "UserDownloads",new { productId = Model.Product.Id })'
+        });
+
+        $('body').on('click', '.btn-comment', function () {
+            var description = $('.comment').val();
+            $.ajax({
+                url: "/Comment/Create",
+                data: {description : description,productId : @Model.Product.Id},
+                sucess:function()
+                {}
+            });
         });
     });
 </script>

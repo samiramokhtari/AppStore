@@ -10,7 +10,7 @@ namespace AppStore.Biz
 {
     public class CommentBiz
     {
-        public IEnumerable<Comment> Get(int id)
+        public List<Comment> Get(int id)
         {
             using (UnitOfWork unit = new UnitOfWork())
             {
@@ -19,9 +19,20 @@ namespace AppStore.Biz
             }
         }
 
+        public int CommnetsCount(int ProductId)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                return unit.CommentReppository.GetAllItems.Count(x => x.Product_Id == ProductId);
+            }
+        }
+
         public OperationResult Create(Comment model)
         {
             OperationResult rState = null;
+            model.DateTime = DateTime.Now;
+            //TODO :SET DATA REAL
+            model.User_Id= 1;
             using (UnitOfWork uow = new UnitOfWork())
             {
                 uow.CommentReppository.Insert(model, out rState);
