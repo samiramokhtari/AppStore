@@ -26,21 +26,8 @@ namespace AppStore.DAL
                 return productRepository;
             }
         }
-        private BaseBs<Group> groupRepository;
-
-        public BaseBs<Group> GroupRepository
-        {
-            get
-            {
-
-                if (groupRepository == null)
-                    groupRepository = new BaseBs<Group>(context);
-
-
-                return groupRepository;
-            }
-        }
-
+        
+     
 
         private BaseBs<ProductImage> productImageRepository;
         public BaseBs<ProductImage> ProductImageRepository
@@ -79,6 +66,21 @@ namespace AppStore.DAL
                     groupRepository = new BaseBs<Group>(context);
 
                 return groupRepository;
+            }
+        }
+
+        private BaseBs<UserDownload> userDownloadRepository;
+
+        public BaseBs<UserDownload> UserDownloadRepository
+        {
+            get
+            {
+
+                if (userDownloadRepository == null)
+                    userDownloadRepository = new BaseBs<UserDownload>(context);
+
+
+                return userDownloadRepository;
             }
         }
 

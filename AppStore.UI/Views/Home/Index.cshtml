@@ -1,50 +1,11 @@
-﻿@model List<AppStore.Models.Product>
+﻿@model AppStore.UI.Models.HomeProducts
 @{
     ViewBag.Title = "Home Page";
 }
 
 @Html.Partial("_SlidShowPartial")
-@*<div class="col-md-4">
-        @foreach (var item in Model)
-        {
-            @Html.Partial("~/Views/Product/LinearProduct.cshtml", item)
-        }
-    </div>*@
-
-@*Home page*@
 
 
-
-<section class="p-5 margin-top-xl pos-r" id="slide-box-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h4 class="message text-right text-gray text-bold">برنامه های محبوب من</h4>
-
-            </div>
-
-            <div class="col-sm-12">
-                <div class="mt-5 pos-r">
-                    <div class="carousel-controls testimonial-carousel-controls">
-                        <div class="control prev"><i class="fa fa-chevron-left text-gray">&nbsp;</i></div>
-                        <div class="control next"><i class="fa fa-chevron-right text-gray">&nbsp;</i></div>
-                    </div>
-                    <div class="testimonial-carousel">
-
-                        @foreach (var item in Model)
-                        {
-                            <div class="one-slide white">
-                                <div class="testimonial w-100 h-100  p-3 text-center">
-                                    <div class="brand"><a href="/Product/Get/@item.Id"><img alt="Florida Dairy Farmers" src="~/Content/images/iconProduct/@(item.Logo == null ? "nologo.jpg" : item.Logo.ImageName)" width="150" height="150" class="mx-auto"  /></a></div>
-                                    <div class="separator">&nbsp;</div>
-                                    <spa class="message text-center text-gray" style="direction:rtl">@item.Name</spa>
-
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@Html.Partial("ProductSlider", Model.MostDownloaded, new ViewDataDictionary { { "Title", "بشترین دانلود شده" } })
+@Html.Partial("ProductSlider", Model.Games, new ViewDataDictionary { { "Title", "بازی ها" } })
+@Html.Partial("ProductSlider", Model.NewApps, new ViewDataDictionary { { "Title", "جدیدترین ها" } })
