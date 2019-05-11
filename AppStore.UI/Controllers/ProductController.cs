@@ -116,7 +116,7 @@ namespace AppStore.UI.Controllers
 
         [HttpGet]
         public ActionResult Delete()
-        {
+        { 
             return View();
         }
     }

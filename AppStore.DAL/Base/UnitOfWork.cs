@@ -69,6 +69,19 @@ namespace AppStore.DAL
         }
 
 
+        private BaseBs<Group> groupRepository;
+
+        public BaseBs<Group> GroupRepository
+        {
+            get
+            {
+                if (groupRepository == null)
+                    groupRepository = new BaseBs<Group>(context);
+
+                return groupRepository;
+            }
+        }
+
         public void Dispose()
         {
             Dispose(true);
