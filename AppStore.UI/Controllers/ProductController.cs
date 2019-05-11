@@ -1,7 +1,9 @@
 ﻿using AppStore.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -41,15 +43,54 @@ namespace AppStore.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken()]
         public ActionResult Create(Product p)
         {
-            new Biz.ProductBiz().Create(p);
+            if (Request.Files.Count > 0)
+            {
+                p.ProductImages = new List<ProductImage>();
+                string path = Server.MapPath("~/Content/images/iconProduct/");
+                int counter = 0;
+                foreach (HttpPostedFileBase file in Request.Files.GetMultiple("Logo"))
+                {
+                    string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                    file.SaveAs(path + fileName);
+
+                    p.ProductImages.Add(new ProductImage()
+                    {
+                        ImageName = fileName,
+                        Type = counter == p.LogoIndex ? ImageType.Logo : ImageType.Details
+                    });
+
+                    counter++;
+                }
+            }
+
+            var result = new Biz.ProductBiz().Create(p);
+
+            if (result.Succeed)
+                return RedirectToAction("Manage");
             return View(p);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
+
+
+            ViewBag.Groups = new Biz.GroupBiz().GetAll().Select(x =>
+                        new SelectListItem
+                        {
+                            Value = x.Id.ToString(),
+                            Text = x.Name
+                        });
+
+            //ViewBag.TypeImages = new Biz.ProductImageBiz().GetAll().Select(x =>
+            //            new SelectListItem
+            //            {
+            //                Value = x.Id.ToString(),
+            //                Text = Enum.Parse(typeof(ImageType), x.Type.ToString()).ToString()
+            //            });
             return View(new Product());
         }
 
@@ -75,7 +116,7 @@ namespace AppStore.UI.Controllers
 
         [HttpGet]
         public ActionResult Delete()
-        { 
+        {
             return View();
         }
     }
