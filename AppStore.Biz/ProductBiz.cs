@@ -14,7 +14,7 @@ namespace AppStore.Biz
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
-        
+
                 return uow.ProductRepository.GetAllItems.ToList();
             }
         }
@@ -29,6 +29,9 @@ namespace AppStore.Biz
 
         public OperationResult Create(Product model)
         {
+            if (model == null)
+                return null;
+            model.DateTime = DateTime.Now;
             OperationResult rState = null;
             using (UnitOfWork uow = new UnitOfWork())
             {
@@ -37,7 +40,27 @@ namespace AppStore.Biz
             }
         }
 
+        public OperationResult Edit(Product model)
+        {
+            if (model == null)
+                return null;
+            model.DateTime = DateTime.Now;
+            OperationResult rState = null;
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                uow.ProductRepository.Update(model, out rState);
+                return rState;
+            }
+        }
 
+        public List<Product> Find(string strSearch)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                return uow.ProductRepository.GetAllItems.Where(x => x.Name.Contains(strSearch)).ToList();
+
+            }
+        }
 
         /*
         public string Create(Product model, string userId)
@@ -80,49 +103,49 @@ namespace AppStore.Biz
         }
         */
 
-        public string Edit(Product model, User user)
-        {
+        //public string Edit(Product model, User user)
+        //{
 
-            OperationResult state = null;
+        //    OperationResult state = null;
 
-            Product obj = GetAll().Where(m => m.Id == model.Id).FirstOrDefault();
+        //    Product obj = GetAll().Where(m => m.Id == model.Id).FirstOrDefault();
 
-            LogBiz<Product> log = new LogBiz<Product>();
+        //    LogBiz<Product> log = new LogBiz<Product>();
 
-            string beforeChange = log.GetProperites(obj);
+        //    string beforeChange = log.GetProperites(obj);
 
-            if (obj != null)
-            {
-                obj.Name = model.Name;
-                obj.Price = model.Price;
+        //    if (obj != null)
+        //    {
+        //        obj.Name = model.Name;
+        //        obj.Price = model.Price;
 
 
 
-                string afterChange = log.GetProperites(obj);
+        //        string afterChange = log.GetProperites(obj);
 
-                // unit.ProductRepository.Update(obj, out state);
-                using (UnitOfWork uow = new UnitOfWork())
-                {
-                    uow.ProductRepository.Update(obj, out state);
-                }
+        //        // unit.ProductRepository.Update(obj, out state);
+        //        using (UnitOfWork uow = new UnitOfWork())
+        //        {
+        //            uow.ProductRepository.Update(obj, out state);
+        //        }
 
-                new LogSystemBiz().Insert(new LogSystemModel()
-                {
-                    Action = "ویرایش محصول",
-                    AfterChange = afterChange,
-                    BeforeChange = beforeChange,
-                    DateTime = DateTime.Now,
-                    ErrorMessage = (state.Succeed ? " " : state.Message + " - " + state.Exception.StackTrace),
-                    UserId = user.Id.ToString()
-                });
+        //        new LogSystemBiz().Insert(new LogSystemModel()
+        //        {
+        //            Action = "ویرایش محصول",
+        //            AfterChange = afterChange,
+        //            BeforeChange = beforeChange,
+        //            DateTime = DateTime.Now,
+        //            ErrorMessage = (state.Succeed ? " " : state.Message + " - " + state.Exception.StackTrace),
+        //            UserId = user.Id.ToString()
+        //        });
 
-                if (state.Succeed)
-                    return "true";
+        //        if (state.Succeed)
+        //            return "true";
 
-                return state.Message;
-            }
-            return "false";
-        }
+        //        return state.Message;
+        //    }
+        //    return "false";
+        //}
 
 
 

@@ -9,7 +9,8 @@ namespace AppStore.UI.Models
     public class ShowProductDetiels
     {
         public Product Product { get; set; }
-        public Comment Comments { get; set; }
-        public UserDownload UserDownload { get; set; }
+        public CountsViewModel Counts { get; set; }
+        public List<Comment> Comments { get; set; }
+        public Comment Comment { get; set; }
     }
 }

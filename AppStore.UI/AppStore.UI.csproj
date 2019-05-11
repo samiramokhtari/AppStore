@@ -179,6 +179,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookMarksController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentDataController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
@@ -186,10 +188,13 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductDataController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\UserDownloadsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CountsViewModel.cs" />
+    <Compile Include="Models\HomeProducts.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShowProductDetiels.cs" />
@@ -205,6 +210,7 @@
     <Content Include="Content\font-awesome\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\background.jpg" />
+    <Content Include="Content\images\iconProduct\default.png" />
     <Content Include="Content\images\game.jpg" />
     <Content Include="Content\images\iconProduct\img-6.png" />
     <Content Include="Content\images\iconProduct\shareit %281%29.jpg" />
@@ -217,10 +223,12 @@
     <Content Include="Content\images\iconShowDetelis\app-3.png" />
     <Content Include="Content\images\iconShowDetelis\app-4.png" />
     <Content Include="Content\images\iconShowDetelis\app-5.png" />
+    <Content Include="Content\images\iconShowDetelis\Mark.png" />
     <Content Include="Content\images\imag-1.jpg" />
     <Content Include="Content\images\iconProduct\instagram.jpg" />
     <Content Include="Content\images\like.jpg" />
     <Content Include="Content\images\like1.jpg" />
+    <Content Include="Content\images\Search.png" />
     <Content Include="Content\images\sort_asc.png" />
     <Content Include="Content\images\sort_asc_disabled.png" />
     <Content Include="Content\images\sort_both.png" />
@@ -244,6 +252,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\Downloads\samira.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.js" />
     <Content Include="Scripts\datatables.js" />
@@ -310,9 +319,14 @@
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Home\ProductSlider.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BookMarks\" />
+    <Folder Include="Views\Comment\" />
+    <Folder Include="Views\UserDownloads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

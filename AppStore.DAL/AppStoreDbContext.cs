@@ -25,6 +25,7 @@ namespace AppStore.DAL
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<UserDownload> UserDownloads { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<BookMark> BookMarks { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -8,41 +8,29 @@ using System.Threading.Tasks;
 
 namespace AppStore.Biz
 {
-    public class DownloadBiz
+    public class BookMarkBiz
     {
-        public List<UserDownload> GetAll()
+
+        public List<BookMark> GetAll()
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
-
-                return uow.UserDownloadRepository.GetAllItems.ToList();
+                return uow.BookMarksRepository.GetAllItems.ToList();
             }
         }
-
-        public OperationResult Create(UserDownload model)
+        public OperationResult Create(BookMark model)
         {
             if (model == null)
                 return null;
             model.DateTime = DateTime.Now;
-            //todo : set UserID to real value
+            // TODO : SET UserId Real
             model.User_Id = 1;
-
             OperationResult rState = null;
             using (UnitOfWork uow = new UnitOfWork())
             {
-                uow.UserDownloadRepository.Insert(model, out rState);
+                uow.BookMarksRepository.Insert(model, out rState);
                 return rState;
             }
         }
-
-
-        public int Get(int ProductId)
-        {
-            using (UnitOfWork uow = new UnitOfWork())
-            {
-                return uow.UserDownloadRepository.GetAllItems.Count(x => x.Product_Id == ProductId);
-            }
-        }
-
     }
 }

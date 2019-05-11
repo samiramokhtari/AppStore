@@ -6,13 +6,13 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
-{
+<form action="@Url.Action("Create")" method="post" enctype="multipart/form-data">
+   
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
+
+    <h4>Product</h4>
+
+    <div class="form-horizontal col-lg-6">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -30,46 +30,16 @@
             </div>
         </div>
 
+       
         <div class="form-group">
-            @Html.LabelFor(model => model.FileSize, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Group.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FileSize, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FileSize, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Group.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Group.Type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("Group_Id", new SelectList(ViewBag.Groups, "Value", "Text"), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Group.Type, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Logo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+       
         <div class="form-group">
             @Html.LabelFor(model => model.Version, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -78,6 +48,10 @@
             </div>
         </div>
 
+
+    </div>
+    <div class="form-horizontal col-lg-6">
+
         <div class="form-group">
             @Html.LabelFor(model => model.Developer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -85,23 +59,79 @@
                 @Html.ValidationMessageFor(model => model.Developer, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.License, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.License, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.CheckBoxFor(model => model.License)
                 @Html.ValidationMessageFor(model => model.License, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            @Html.Label("FileUpload", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="divFileUplad" style="margin-bottom: 10px;">
+                    <input type="file" name="FileUpload" id="FileUpload">
+                </div>
+
             </div>
         </div>
-    </div>
-}
+        <div class="form-group">
+            @Html.Label("Images", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <button id="btnAdd" class="btn btn-info" type="button">Add</button>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                <div id="AddImage">
+                    <div class="divImage" style="margin-bottom: 10px;">
+                        <input type="file" name="Logo" id="Logo">
+                        <input type="radio" name="logoIndex" value="0" checked /> لوگو
+                        <button class="btnRemove btn btn-danger" type="button">remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</form>
+
+
+@Html.ActionLink("Back to List", "Index")
+
+
+@Scripts.Render("~/bundles/jquery")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".btnRemove").hide();
+        $("#btnAdd").click(function () {
+            $(".divImage:first").clone().appendTo("#AddImage");
+            $(".divImage:last .btnRemove").show();
+            if ($(".divImage").length == 2) {
+                $(':radio[name=logoIndex]:eq(0)').prop('ckecked', 'checked');
+            }
+            reindexLogo();
+        });
+        $('body').on('click', '.btnRemove', function () {
+            $(this).closest('.divImage').remove();
+            reindexLogo();
+        });
+
+        function reindexLogo() {
+            $(':radio[name=logoIndex]').each(function (i, item) {
+                $(item).val(i);
+            });
+            if ($(':radio[name=logoIndex]:checked').length == 0) {
+                $(':radio[name=logoIndex]:eq(0)').prop('ckecked', 'checked');
+            }
+        }
+    });
+</script>

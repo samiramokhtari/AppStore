@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace AppStore.Models
 {
-   public class Comment
+    public class BookMark
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [ForeignKey("User")]
-        public int User_Id { get; set; }
-        public virtual User User{ get; set; }
-        public DateTime DateTime { get; set; }
-        public int UserRate { get; set; }
         [ForeignKey("Product")]
         public int Product_Id { get; set; }
-        public virtual  Product Product { get; set; }
-        public string Description { get; set; }
+        [ForeignKey("User")]
+        public int User_Id { get; set; }
+        public virtual Product Product { get; set; }
+        public DateTime DateTime { get; set; }
+        public virtual User User { get; set; }
+
+
     }
 }

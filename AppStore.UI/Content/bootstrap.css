@@ -83,13 +83,16 @@ h1 {
 }
 
 
+
 .lang-bar {
     border-right: 10px solid #8c0145 !important;
 }
 .lang-bar-top {
     border-top: 10px solid #8c0145 !important;
 }
-
+.input-max{
+    width:990px !important;
+}
 .left-corner {
     left: 0;
     bottom: 0;
@@ -282,7 +285,11 @@ table {
     width: 25px;
     height: 25px;
 }
-
+.mark {
+    background-image: url(/Content/images/iconShowDetelis/Mark.png);
+    width: 100px;
+    height: 100px;
+}
 .icondownload {
     background-image: url(/Content/images/iconShowDetelis/app-1.png);
     width: 185px;

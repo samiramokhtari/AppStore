@@ -14,15 +14,19 @@ namespace AppStore.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public string FileSize { get; set; }
-        public Group Group { get; set; }
+        public virtual Group Group { get; set; }
+        [ForeignKey("Group")]
+        public int Group_Id { get; set; }
         public DateTime DateTime { get; set; }
         public virtual ICollection<ProductImage> ProductImages { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<UserDownload> UserDownloads { get; set; }
+        public virtual ICollection<BookMark> BookMarks { get; set; }
+        public string FileUpload { get; set; }
         public double Rate { get; set; }
-        public int Version { get; set; }
+        public float Version { get; set; }
         public string Developer { get; set; }
-        public string License { get; set; }
+        public bool License { get; set; }
 
         public ProductImage Logo
         {
@@ -33,5 +37,7 @@ namespace AppStore.Models
                 return ProductImages.FirstOrDefault(x => x.Type == ImageType.Logo);
             }
         }
+        [NotMapped()]
+        public int LogoIndex { get; set; }
     }
 }
