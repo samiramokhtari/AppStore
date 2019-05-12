@@ -1,0 +1,37 @@
+﻿
+<div class="container navbar-inverse" id="serach-box">
+    <div class="row" style="height:50px">
+        <div class="col-lg-10">
+            <input type="text" class="form-control input-max list-inline" id="text-search" placeholder="Search">
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-default list-inline" id="go-search" type="button">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="search-result"></div>
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+        $(document).ready(function () {
+            
+            $("#btn-search").click(function () {
+                $("#serach-box").slideToggle(1000);
+            });
+            $('body').on('click', '#go-search', function () {
+                $.ajax({
+                    dataType: 'html',
+                    url: "/Product/Search",
+                    type: 'post',
+                    data: { strSearch: $("#text-search").val() },
+                    success: function (data) {
+                        $('#search-result').html(data);
+                    },
+
+                });
+            });
+        });
+
+</script>

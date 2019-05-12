@@ -10,5 +10,7 @@ namespace AppStore.UI.Models
     {
         public Product Product { get; set; }
         public CountsViewModel Counts { get; set; }
+        public List<Comment> Comments { get; set; }
+        public Comment Comment { get; set; }
     }
 }

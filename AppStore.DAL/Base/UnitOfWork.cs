@@ -83,6 +83,20 @@ namespace AppStore.DAL
                 return userDownloadRepository;
             }
         }
+        private BaseBs<BookMark> bookMarksRepository;
+
+        public BaseBs<BookMark> BookMarksRepository
+        {
+            get
+            {
+
+                if (bookMarksRepository == null)
+                    bookMarksRepository = new BaseBs<BookMark>(context);
+
+
+                return bookMarksRepository;
+            }
+        }
 
         public void Dispose()
         {

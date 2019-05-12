@@ -1,5 +1,5 @@
 ﻿@model AppStore.UI.Models.ShowProductDetiels
-
+@using AppStore.Common
 <div class="direction-rtl">
     <div class="row">
         <div class="col-lg-12">
@@ -7,11 +7,13 @@
                 <div class="panel-heading bg">
                     <div class="panel-title">
                         <div class="row">
-                            <div class="col-lg-10">
-
+                            <div class="col-lg-8">
+                                <div class="col-lg-3">
+                                    <button type="button" name="mark" class="btn bouton-image mark btn-mark"></button>
+                                </div>
                             </div>
-                            <div class="col-lg-2">
-                                <h1 class="glyphicon  text-right text-white m-0 p-0">برنامه</h1>
+                            <div class="col-lg-3">
+                                <h1 class="glyphicon  text-right text-white m-0 p-0 mt-3">برنامه</h1>
                             </div>
                         </div>
                     </div>
@@ -96,66 +98,53 @@
                                                 </div>
 
                                             </li>
-                                            <li class="media">
-                                                <a class="pull-right" href="#">
-                                                    <img class="media-object img-circle" src="~/Content/images/Users/User2.jpg" alt="profile">
-                                                </a>
-                                                <div class="media-body">
-                                                    <div class="well well-lg" style="position: relative">
-                                                        <div class="left-corner"></div>
-                                                        <div class="right-corner"></div>
-                                                        <div class="text-lg-center">
-                                                            <button class="btn bouton-image Unlike  list-inline"></button>
-                                                            <button class="btn bouton-image Unlike  list-inline"></button>
-                                                            <button class="btn bouton-image Unlike  list-inline"></button>
-                                                            <button class="btn bouton-image like list-inline"></button>
-                                                            <button class="btn bouton-image like list-inline"></button>
+                                            @foreach (var item in Model.Comments)
+                                            {
+                                                string data = Helper.MeladiToShamsi(item.DateTime.ToShortDateString());
+                                                <li class="media">
+                                                    <a class="pull-right" href="#">
+                                                        <img class="media-object img-circle" src="~/Content/images/Users/User2.jpg" alt="profile">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <div class="well well-lg" style="position: relative">
+                                                            <div class="left-corner"></div>
+                                                            <div class="right-corner"></div>
+                                                            <div class="text-lg-center">
+                                                                @{
+                                                                    int countlike = item.UserRate;
+                                                                    int countUnlike = 5 - item.UserRate;
+                                                                    for (int i = 0; i < countlike; i++)
+                                                                    {
+                                                                        <button class="btn bouton-image like  list-inline"></button>
+                                                                    }
+
+                                                                    for (int i = 0; i < countUnlike; i++)
+                                                                    {
+
+                                                                        <button class="btn bouton-image Unlike  list-inline"></button>
+                                                                    }
+                                                                }
+                                                            </div>
+                                                            <h4 class="media-heading text-uppercase reviews">
+                                                                @item.User.FirstName  @item.User.LastName
+                                                            </h4>
+                                                            <ul class="media-date text-uppercase reviews list-inline">
+                                                                <li class="dd"> @data.Substring(8, 2)</li>
+                                                                <li class="mm">@data.Substring(5, 2)</li>
+                                                                <li class="aaaa">@data.Substring(0, 4)</li>
+                                                            </ul>
+
+
+                                                            <p class="media-comment">
+                                                                @item.Description
+                                                            </p>
+
+                                                            <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
                                                         </div>
-                                                        <h4 class="media-heading text-uppercase reviews">حسن ایوبی</h4>
-                                                        <ul class="media-date text-uppercase reviews list-inline">
-                                                            <li class="dd">22</li>
-                                                            <li class="mm">فروردین</li>
-                                                            <li class="aaaa">1398</li>
-                                                        </ul>
-                                                        <p class="media-comment">
-
-                                                        </p>
-
-                                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="media">
-                                                <a class="pull-right" href="#">
-                                                    <img class="media-object img-circle" src="~/Content/images/Users/User1.jpg" alt="profile">
-                                                </a>
-                                                <div class="media-body">
-                                                    <div class="well well-lg" style="position: relative">
-                                                        <div class="left-corner"></div>
-                                                        <div class="right-corner"></div>
-                                                        <div class="text-lg-center">
-                                                            <button class="btn bouton-image like  list-inline"></button>
-                                                            <button class="btn bouton-image like  list-inline"></button>
-                                                            <button class="btn bouton-image like  list-inline"></button>
-                                                            <button class="btn bouton-image like list-inline"></button>
-                                                            <button class="btn bouton-image like list-inline"></button>
-                                                        </div>
+                                                </li>
+                                                                    }
 
-                                                        <h4 class="media-heading text-uppercase reviews">نازنین مرادزاده</h4>
-                                                        <ul class="media-date text-uppercase reviews list-inline">
-                                                            <li class="dd">20</li>
-                                                            <li class="mm">اسفند</li>
-                                                            <li class="aaaa">1397</li>
-                                                        </ul>
-                                                        <p class="media-comment">
-                                                            بدک نبود. میتونیست بهتر باشه. بنظرم گرافیکش خیلی ساده بود
-                                                        </p>
-                                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> پاسخ</a>
-                                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyTwo"><span class="glyphicon glyphicon-comment"></span> 1 نظر</a>
-                                                    </div>
-                                                </div>
-
-                                            </li>
                                         </ul>
                                     </div>
 
@@ -176,13 +165,27 @@
 
             <div class="well well-lg lang-bar">
 
-                <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+                <form class="form-horizontal" id="commentForm" role="form">
+
+
                     <div class="form-group">
 
+                        <div class="text-lg-center">
+                            <button type="button" name="userRate" class="btn bouton-image Unlike  list-inline rate"></button>
+                            <button type="button" name="userRate" class="btn bouton-image Unlike  list-inline rate"></button>
+                            <button type="button" name="userRate" class="btn bouton-image Unlike  list-inline rate"></button>
+                            <button type="button" name="userRate" class="btn bouton-image Unlike list-inline rate"></button>
+                            <button type="button" name="userRate" class="btn bouton-image Unlike list-inline rate"></button>
+                            <input type="hidden" id="counterRate" value="0" />
+                        </div>
                         <label><span class="text-right"> نظر</span></label>
                         <div class="col-sm-12">
+
+
                             <textarea class="form-control comment" name="addComment" id="addComment" rows="5"></textarea>
+                            <label class="error text-danger" />
                         </div>
+
                     </div>
 
                     <div class="form-group">
@@ -209,18 +212,63 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        var counter = 0;
         $('body').on('click', '.btn-install', function () {
-            location = '@Url.Action("Download", "UserDownloads",new { productId = Model.Product.Id })'
+            location = '@Url.Action("Download", "UserDownloads", new { productId = Model.Product.Id })'
         });
 
-        $('body').on('click', '.btn-comment', function () {
+        $('body').on('click', '.btn-comment', function (e) {
+            e.preventDefault();
             var description = $('.comment').val();
-            $.ajax({
-                url: "/Comment/Create",
-                data: {description : description,productId : @Model.Product.Id},
-                sucess:function()
-                {}
-            });
+            if(description == "")
+            {
+                $('.error').html('لطفا کامنت را پر کنید');
+            }else{
+                $.ajax({
+                    dataType: 'json',
+                    url: "/Comment/Create",
+                    type:'post',
+                    data: {description:description,productId:@Model.Product.Id,Rate:$("#counterRate").val()},
+                    success:function(data)
+                    {
+                        if(data.success)
+                            window.location.reload();
+                        else
+                            alert('لطفا مجدد تلاش کنید عملیات ناموفق است');
+                    },
+
+                });
+            }
+            return false;
         });
+        $('body').on('click', '.rate', function () {
+            if($(this).hasClass("like"))
+            {
+                $(this).removeClass("like").addClass("Unlike");
+                $("#counterRate").val(function(i, val) { return +val-1 });
+            }
+            else{
+                $(this).removeClass("Unlike").addClass("like");
+                $("#counterRate").val(function(i, val) { return +val+1 });
+            }
+        });
+
+        $('body').on('click', '.btn-mark', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                dataType: 'json',
+                url: "/BookMarks/Create",
+                type:'post',
+                data: {productId:@Model.Product.Id},
+                success:function(data)
+                {
+                },
+
+            });
+            return false;
+        });
+
+
     });
 </script>

@@ -9,6 +9,6 @@ namespace AppStore.UI.Models
     {
         public int CommentsCount { get; set; }
         public int DownloadsCount { get; set; }
-        public int RateCounts { get; set; }
+        public double RateCounts { get; set; }
     }
 }

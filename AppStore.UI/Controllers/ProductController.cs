@@ -1,4 +1,5 @@
-﻿using AppStore.Models;
+﻿using AppStore.Common;
+using AppStore.Models;
 using AppStore.UI.Models;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,25 @@ namespace AppStore.UI.Controllers
             result.Product = new Biz.ProductBiz().Get(id);
             int downloads = new Biz.DownloadBiz().Get(id);
             int comments = new Biz.CommentBiz().CommnetsCount(id);
+            double Rate = new Biz.ProductBiz().Get(id).Rate;
+            result.Comments = new Biz.CommentBiz().Get(id).OrderByDescending(x => x.DateTime).ToList();
+            result.Counts = new CountsViewModel() { CommentsCount = comments, DownloadsCount = downloads, RateCounts = Rate };
 
-            result.Counts = new CountsViewModel() { CommentsCount = comments, DownloadsCount = downloads, RateCounts = 0 };
             return View("SmallProduct", result);
         }
 
+        public ActionResult Search()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Search(string strSearch)
+        {
+            var list = new Biz.ProductBiz().Find(strSearch);
 
+            return View("list", list);
+
+        }
         public ActionResult Manage()
         {
             return View(GetList());
@@ -118,12 +132,12 @@ namespace AppStore.UI.Controllers
             return View(new Product());
         }
 
-        [HttpPost]
-        public ActionResult Edit(Product p, User u)
-        {
-            new Biz.ProductBiz().Edit(p, u);
-            return View();
-        }
+        //[HttpPost]
+        //public ActionResult Edit(Product p, User u)
+        //{
+        //    new Biz.ProductBiz().Edit(p, u);
+        //    return View();
+        //}
 
 
         [HttpGet]

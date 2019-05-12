@@ -14,8 +14,7 @@ namespace AppStore.Biz
         {
             using (UnitOfWork unit = new UnitOfWork())
             {
-                return null;
-             //  return unit.CommentReppository.GetAllItems.Where(x => x.Products== id).ToList();
+                return unit.CommentReppository.GetAllItems.Where(x => x.Product_Id == id).ToList();
             }
         }
 
@@ -29,17 +28,29 @@ namespace AppStore.Biz
 
         public OperationResult Create(Comment model)
         {
+            if (model == null || model.Description == "")
+                return null;
+
             OperationResult rState = null;
             model.DateTime = DateTime.Now;
             //TODO :SET DATA REAL
-            model.User_Id= 1;
+            model.User_Id = 1;
             using (UnitOfWork uow = new UnitOfWork())
             {
                 uow.CommentReppository.Insert(model, out rState);
                 return rState;
             }
-
-            
         }
+
+
+        public double GetRate(int productId)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                return unit.CommentReppository.GetAllItems.Where(x => x.Product_Id == productId && x.UserRate > 0).Select(x => x.UserRate).Average();
+            }
+        }
+
     }
 }
+

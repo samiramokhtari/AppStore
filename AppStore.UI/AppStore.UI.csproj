@@ -179,6 +179,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookMarksController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CommentDataController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
@@ -222,10 +223,12 @@
     <Content Include="Content\images\iconShowDetelis\app-3.png" />
     <Content Include="Content\images\iconShowDetelis\app-4.png" />
     <Content Include="Content\images\iconShowDetelis\app-5.png" />
+    <Content Include="Content\images\iconShowDetelis\Mark.png" />
     <Content Include="Content\images\imag-1.jpg" />
     <Content Include="Content\images\iconProduct\instagram.jpg" />
     <Content Include="Content\images\like.jpg" />
     <Content Include="Content\images\like1.jpg" />
+    <Content Include="Content\images\Search.png" />
     <Content Include="Content\images\sort_asc.png" />
     <Content Include="Content\images\sort_asc_disabled.png" />
     <Content Include="Content\images\sort_both.png" />
@@ -317,9 +320,11 @@
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Home\ProductSlider.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BookMarks\" />
     <Folder Include="Views\Comment\" />
     <Folder Include="Views\UserDownloads\" />
   </ItemGroup>
