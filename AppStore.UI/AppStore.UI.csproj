@@ -321,6 +321,13 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Home\ProductSlider.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Group\List.cshtml" />
+    <Content Include="Views\Group\Create.cshtml" />
+    <Content Include="Views\Group\Delete.cshtml" />
+    <Content Include="Views\Group\Edit.cshtml" />
+    <Content Include="Views\Group\Details.cshtml" />
+    <Content Include="Views\Group\Manage.cshtml" />
+    <Content Include="Views\Group\SmallGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

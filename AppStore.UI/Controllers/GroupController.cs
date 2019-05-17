@@ -20,7 +20,7 @@ namespace AppStore.UI.Controllers
 
             var sampleGroup = new Biz.GroupBiz().Get(id);
 
-            return View(sampleGroup);
+            return View("Details", sampleGroup);
         }
 
         public ActionResult Manage()
@@ -38,10 +38,13 @@ namespace AppStore.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken()]
         public ActionResult Create(Group g)
         {
-            new Biz.GroupBiz().Create(g);
-            return View(Get(g.Id));
+            var result = new Biz.GroupBiz().Create(g);
+            if (result.Succeed)
+                return RedirectToAction("Manage");
+            return View(g);
         }
 
         [HttpGet]

@@ -1,132 +1,40 @@
-﻿<section class="p-5 margin-top-xl pos-r" id="slide-box-section">
-    <div class="container">
-        <div class="row">
-           
+﻿@model IEnumerable<AppStore.Models.Group>
 
-            <div class="col-sm-12">
-                <div class="mt-5 pos-r">
-                    
-                    <div class="testimonial-carousel">
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Dairy Farmers" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <spa class="message text-center text-gray" style="direction:rtl">instagram</spa>
+@{
+    ViewBag.Title = "Index";
+}
 
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Department of Education" src="~/Content/images/iconProduct/shareit (1).jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">Shearit</div>
+<h2>Index</h2>
 
-                            </div>
-                        </div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
 
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Lynx" src="~/Content/images/iconProduct/telegram.jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">telegram</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Miami Beach VCA" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">viber</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Oneblood" src="~/Content/images/iconProduct/whatsapp.jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">whatsapp</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-
-
-            <div class="col-sm-12">
-                <div class="mt-5 pos-r">
-
-                    <div class="testimonial-carousel">
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Dairy Farmers" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <spa class="message text-center text-gray" style="direction:rtl">instagram</spa>
-
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Florida Department of Education" src="~/Content/images/iconProduct/shareit (1).jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">Shearit</div>
-
-                            </div>
-                        </div>
-
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Seminole County" src="~/Content/images/iconProduct/snap.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">snapp</div>
-
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Lynx" src="~/Content/images/iconProduct/telegram.jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">telegram</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Miami Beach VCA" src="~/Content/images/iconProduct/viber.png" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">viber</div>
-                            </div>
-                        </div>
-                        <div class="one-slide white lang-bar-top">
-                            <div class="testimonial w-100 h-100  p-3 text-center">
-                                <div class="brand"><img alt="Oneblood" src="~/Content/images/iconProduct/whatsapp.jpg" width="150" height="150" class="mx-auto" /></div>
-                                <div class="separator">&nbsp;</div>
-                                <div class="message text-center text-gray">whatsapp</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</table>

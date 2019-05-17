@@ -31,5 +31,7 @@ namespace AppStore.UI.Models
         }
 
         public System.Data.Entity.DbSet<AppStore.Models.Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<AppStore.Models.Group> Groups { get; set; }
     }
 }
