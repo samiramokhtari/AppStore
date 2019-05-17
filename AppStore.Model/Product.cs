@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppStore.Models
 {
-    public class Product
+    public class Product : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -39,5 +39,7 @@ namespace AppStore.Models
         }
         [NotMapped()]
         public int LogoIndex { get; set; }
+
+        public string Description { get; set; }
     }
 }

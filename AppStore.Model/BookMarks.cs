@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppStore.Models
 {
-    public class BookMark
+    public class BookMark : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
