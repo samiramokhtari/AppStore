@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppStore.Models
 {
-   public class Comment
+   public class Comment : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

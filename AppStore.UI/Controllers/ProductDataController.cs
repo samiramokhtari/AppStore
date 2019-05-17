@@ -13,13 +13,14 @@ namespace AppStore.UI.Controllers
         // GET api/<controller>
         public IEnumerable<Product> Get()
         {
-            return new Biz.ProductBiz().GetAll();
+            return Biz.ApiMapper.Map(new Biz.ProductBiz().GetAll());
         }
 
         // GET api/<controller>/5
         public Product Get(int id)
         {
-            return new Biz.ProductBiz().Get(id);
+            var product = new Biz.ProductBiz().Get(id);
+            return Biz.ApiMapper.Map(product);
         }
 
         // POST api/<controller>
@@ -29,14 +30,38 @@ namespace AppStore.UI.Controllers
             return result;
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [HttpGet]
+        public IEnumerable<Product> Search(string value)
         {
+            return Biz.ApiMapper.Map(new Biz.ProductBiz().Find(value));
         }
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+        [HttpGet]
+        public IEnumerable<Product> NewApps()
         {
+            return Biz.ApiMapper.Map(new Biz.ProductBiz().GetAll().OrderByDescending(x => x.DateTime).Take(20).ToList());
         }
+
+
+        [HttpGet]
+        public IEnumerable<Product> MostDownload()
+        {
+            List<Product> Products = new Biz.ProductBiz().GetAll();
+            var Downloads = new Biz.DownloadBiz().GetAll();
+            var mostDownload = (from t in Downloads
+                                group t by t.Product.Id
+                                into g
+                                select new
+                                {
+                                    ProductId = g.Key,
+                                    Count = g.Count()
+                                }).OrderByDescending(x => x.Count)
+                                .Select(x => x.ProductId)
+                                .Take(20)
+                                .ToList();
+            return Biz.ApiMapper.Map(Products.Where(x => mostDownload.Contains(x.Id)).ToList());
+        }
+
+    
     }
 }

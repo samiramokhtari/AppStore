@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AppStore.Models
 {
-    public class LogSystemModel
+    public class LogSystemModel : IEntity
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string UserId { get; set; }
         public string BeforeChange { get; set; }
         public string AfterChange { get; set; }
