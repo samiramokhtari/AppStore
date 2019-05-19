@@ -21,6 +21,7 @@ namespace AppStore.Biz
 
         private static List<ProductImage> simpleMap(ICollection<ProductImage> list)
         {
+            if (list == null) return null;
             var result = new List<ProductImage>();
             foreach (var item in list)
             {
@@ -31,6 +32,7 @@ namespace AppStore.Biz
 
         private static ProductImage simpleMap(ProductImage item)
         {
+            if (item == null) return null;
             return new ProductImage
             {
                 Id = item.Id,
@@ -41,6 +43,8 @@ namespace AppStore.Biz
 
         private static Group simpleMap(Group group)
         {
+
+            if (group == null) return null;
             return new Group
             {
                 Id = group.Id,
@@ -51,6 +55,7 @@ namespace AppStore.Biz
 
         private static ICollection<Comment> simpleMap(ICollection<Comment> list)
         {
+            if (list == null) return null;
             var result = new List<Comment>();
             foreach (var item in list)
             {
@@ -61,6 +66,8 @@ namespace AppStore.Biz
 
         private static Product simpleMap(Product model)
         {
+
+            if (model == null) return null;
             return new Product()
             {
                 Name = model.Name,
@@ -82,6 +89,8 @@ namespace AppStore.Biz
 
         private static Comment simpleMap(Comment item)
         {
+
+            if (item == null) return null;
             return new Comment()
             {
                 Id = item.Id,
@@ -96,6 +105,8 @@ namespace AppStore.Biz
 
         public static List<Comment> Map(List<Comment> list)
         {
+
+            if (list == null) return null;
             var result = new List<Comment>();
             foreach (var item in list)
             {
@@ -106,6 +117,8 @@ namespace AppStore.Biz
 
         public static Comment Map(Comment item)
         {
+
+            if (item == null) return null;
             var comment = simpleMap(item);
             comment.Product = simpleMap(item.Product);
             comment.User = simpleMap(item.User);
@@ -114,6 +127,8 @@ namespace AppStore.Biz
 
         private static User simpleMap(User user)
         {
+
+            if (user == null) return null;
             return new User() {
                 Address = user.Address,
                 Email = user.Email,
@@ -128,6 +143,7 @@ namespace AppStore.Biz
 
         public static List<Product> Map(List<Product> list)
         {
+            if (list == null) return null;
             List<Product> result = new List<Product>();
             foreach (var item in list)
             {
@@ -155,6 +171,7 @@ namespace AppStore.Biz
 
         public static List<UserDownload> Map(List<UserDownload> list)
         {
+            if (list == null) return null;
             List<UserDownload> result = new List<UserDownload>();
             foreach (var item in result)
             {
@@ -183,6 +200,7 @@ namespace AppStore.Biz
 
         public static List<Group> Map(List<Group> list)
         {
+            if (list == null) return null;
             List<Group> result = new List<Group>();
             foreach (var item in list)
             {
