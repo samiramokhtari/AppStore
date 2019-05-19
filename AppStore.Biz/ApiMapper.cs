@@ -9,21 +9,22 @@ namespace AppStore.Biz
 {
     public class ApiMapper
     {
-        public static Product Map(Product P)
+        public static Product Map(Product model)
         {
+            if (model == null) return null;
             return new Product()
             {
-                Name = P.Name,
-                DateTime = P.DateTime,
-                Developer = P.Developer,
-                FileSize = P.FileSize,
-                FileUpload = P.FileUpload,
-                Group_Id = P.Group_Id,
-                Id = P.Id,
-                License = P.License,
-                Price = P.Price,
-                Rate = P.Rate,
-                Version = P.Version
+                Name = model.Name,
+                DateTime = model.DateTime,
+                Developer = model.Developer,
+                FileSize = model.FileSize,
+                FileUpload = model.FileUpload,
+                Group_Id = model.Group_Id,
+                Id = model.Id,
+                License = model.License,
+                Price = model.Price,
+                Rate = model.Rate,
+                Version = model.Version
             };
         }
 
@@ -39,21 +40,22 @@ namespace AppStore.Biz
         }
 
 
-        public UserDownload Map(UserDownload ud)
+        public static UserDownload Map(UserDownload model)
         {
+            if (model == null) return null;
             return new UserDownload() {
 
-                DateTime = ud.DateTime,
-                Id = ud.Id,
-                Product_Id = ud.Product_Id,
-                User_Id = ud.User_Id
+                DateTime = model.DateTime,
+                Id = model.Id,
+                Product_Id = model.Product_Id,
+                User_Id = model.User_Id
 
             };
         }
 
 
 
-        public List<UserDownload> Map(List<UserDownload> list)
+        public static List<UserDownload> Map(List<UserDownload> list)
         {
             List<UserDownload> result = new List<UserDownload>();
             foreach (var item in result)
@@ -62,5 +64,32 @@ namespace AppStore.Biz
             }
             return result;
         }
+
+
+        public static Group Map(Group model)
+        {
+            if (model == null) return null;
+            return new Group() {
+                Id = model.Id,
+                Name = model.Name,
+                Type = model.Type
+
+            };
+
+        }
+
+
+        public static List<Group> Map(List<Group> list)
+        {
+            List<Group> result = new List<Group>();
+            foreach (var item in list)
+            {
+                result.Add(Map(item));
+            }
+            return result;
+        }
+
+
+        
     }
 }

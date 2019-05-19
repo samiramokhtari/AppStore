@@ -36,11 +36,19 @@ namespace AppStore.Biz
         }
 
 
-        public int Get(int ProductId)
+        public int GetDownloadCount(int ProductId)
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
                 return uow.UserDownloadRepository.GetAllItems.Count(x => x.Product_Id == ProductId);
+            }
+        }
+
+        public UserDownload Get(int id)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                return uow.UserDownloadRepository.GetAllItems.FirstOrDefault(x => x.Id == id);
             }
         }
 

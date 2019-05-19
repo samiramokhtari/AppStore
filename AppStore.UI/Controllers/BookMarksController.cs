@@ -18,8 +18,6 @@ namespace AppStore.UI.Controllers
 
         public ActionResult Create(int productId)
         {
-            new Biz.BookMarkBiz().GetAll();
-
             new Biz.BookMarkBiz().Create(new BookMark() { Product_Id = productId});
             return View();
         }

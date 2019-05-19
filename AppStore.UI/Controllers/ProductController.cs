@@ -24,10 +24,12 @@ namespace AppStore.UI.Controllers
         public ActionResult Get(int id)
         {
             ShowProductDetiels result = new ShowProductDetiels();
-            result.Product = new Biz.ProductBiz().Get(id);
-            int downloads = new Biz.DownloadBiz().Get(id);
+
+            var product = new Biz.ProductBiz().Get(id);
+            result.Product = product;
+            double Rate = product.Rate;
+            int downloads = new Biz.DownloadBiz().GetDownloadCount(id);
             int comments = new Biz.CommentBiz().CommnetsCount(id);
-            double Rate = new Biz.ProductBiz().Get(id).Rate;
             result.Comments = new Biz.CommentBiz().Get(id).OrderByDescending(x => x.DateTime).ToList();
             result.Counts = new CountsViewModel() { CommentsCount = comments, DownloadsCount = downloads, RateCounts = Rate };
 

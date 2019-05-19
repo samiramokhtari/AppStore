@@ -39,5 +39,7 @@ namespace AppStore.Models
         }
         [NotMapped()]
         public int LogoIndex { get; set; }
+
+        public string Description { get; set; }
     }
 }

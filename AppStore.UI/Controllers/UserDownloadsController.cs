@@ -34,7 +34,7 @@ namespace AppStore.UI.Controllers
 
         public int CountDownloads(int ProductId)
         {
-            return new Biz.DownloadBiz().Get(ProductId);
+            return new Biz.DownloadBiz().GetDownloadCount(ProductId);
         }
 
 
