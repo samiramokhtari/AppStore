@@ -16,14 +16,7 @@ namespace AppStore.UI.Controllers
         {
             return Biz.ApiMapper.Map(new Biz.DownloadBiz().GetAll());
         }
-
-        //GET: api/UserDownloadData/5
-        public UserDownload Get(int id)
-        {
-            var userDownload = new Biz.DownloadBiz().Get(id);
-            return Biz.ApiMapper.Map(userDownload);
-        }
-
+        
         // POST: api/UserDownloadData
         public OperationResult Post([FromBody]UserDownload model)
         {

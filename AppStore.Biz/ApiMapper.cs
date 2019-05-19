@@ -12,6 +12,55 @@ namespace AppStore.Biz
         public static Product Map(Product model)
         {
             if (model == null) return null;
+            var product = simpleMap(model);
+            product.Comments = simpleMap(model.Comments);
+            product.Group = simpleMap(model.Group);
+            product.ProductImages = simpleMap(model.ProductImages);
+            return product;
+        }
+
+        private static List<ProductImage> simpleMap(ICollection<ProductImage> list)
+        {
+            var result = new List<ProductImage>();
+            foreach (var item in list)
+            {
+                result.Add(simpleMap(item));
+            }
+            return result;
+        }
+
+        private static ProductImage simpleMap(ProductImage item)
+        {
+            return new ProductImage
+            {
+                Id = item.Id,
+                ImageName = item.ImageName,
+                Type = item.Type
+            };
+        }
+
+        private static Group simpleMap(Group group)
+        {
+            return new Group
+            {
+                Id = group.Id,
+                Name = group.Name,
+                Type = group.Type
+            };
+        }
+
+        private static ICollection<Comment> simpleMap(ICollection<Comment> list)
+        {
+            var result = new List<Comment>();
+            foreach (var item in list)
+            {
+                result.Add(simpleMap(item));
+            }
+            return result;
+        }
+
+        private static Product simpleMap(Product model)
+        {
             return new Product()
             {
                 Name = model.Name,
@@ -28,17 +77,8 @@ namespace AppStore.Biz
             };
         }
 
-        public static List<Comment> Map(List<Comment> list)
-        {
-            List<Comment> result = new List<Comment>();
-            foreach (var item in list)
-            {
-                result.Add(Map(item));
-            }
-            return result;
-        }
 
-        private static Comment Map(Comment item)
+        private static Comment simpleMap(Comment item)
         {
             return new Comment()
             {
@@ -49,6 +89,24 @@ namespace AppStore.Biz
                 UserRate = item.UserRate,
                 User_Id = item.User_Id
             };
+        }
+
+
+        public static List<Comment> Map(List<Comment> list)
+        {
+            var result = new List<Comment>();
+            foreach (var item in list)
+            {
+                result.Add(simpleMap(item));
+            }
+            return result;
+        }
+
+        public static Comment Map(Comment item)
+        {
+            var comment = simpleMap(item);
+            comment.Product = simpleMap(item.Product);
+            return comment;
         }
 
         public static List<Product> Map(List<Product> list)
