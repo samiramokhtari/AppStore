@@ -38,5 +38,29 @@ namespace AppStore.Biz
             return result;
         }
 
+
+        public UserDownload Map(UserDownload ud)
+        {
+            return new UserDownload() {
+
+                DateTime = ud.DateTime,
+                Id = ud.Id,
+                Product_Id = ud.Product_Id,
+                User_Id = ud.User_Id
+
+            };
+        }
+
+
+
+        public List<UserDownload> Map(List<UserDownload> list)
+        {
+            List<UserDownload> result = new List<UserDownload>();
+            foreach (var item in result)
+            {
+                result.Add(Map(item));
+            }
+            return result;
+        }
     }
 }
