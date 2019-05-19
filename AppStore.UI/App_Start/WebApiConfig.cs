@@ -30,7 +30,14 @@ namespace AppStore.UI
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional, action = "Get" }
+                constraints: new { id = @"\d{1,10}" },
+                defaults: new { action = "Get" }
+            );
+            config.Routes.MapHttpRoute(
+                name: "DefaultApiAction",
+                routeTemplate: "api/{controller}/{action}",
+                constraints: new { action = @"[a-zA-Z].*" },
+                defaults: new { action = "Get" }
             );
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
