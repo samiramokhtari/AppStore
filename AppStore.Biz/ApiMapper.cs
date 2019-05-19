@@ -54,7 +54,7 @@ namespace AppStore.Biz
             var result = new List<Comment>();
             foreach (var item in list)
             {
-                result.Add(simpleMap(item));
+                result.Add(Map(item));
             }
             return result;
         }
@@ -99,7 +99,7 @@ namespace AppStore.Biz
             var result = new List<Comment>();
             foreach (var item in list)
             {
-                result.Add(simpleMap(item));
+                result.Add(Map(item));
             }
             return result;
         }
