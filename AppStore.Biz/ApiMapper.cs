@@ -78,6 +78,8 @@ namespace AppStore.Biz
         }
 
 
+        
+
         private static Comment simpleMap(Comment item)
         {
             return new Comment()
@@ -106,7 +108,22 @@ namespace AppStore.Biz
         {
             var comment = simpleMap(item);
             comment.Product = simpleMap(item.Product);
+            comment.User = simpleMap(item.User);
             return comment;
+        }
+
+        private static User simpleMap(User user)
+        {
+            return new User() {
+                Address = user.Address,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                Id = user.Id,
+                LastName = user.LastName,
+                MobileNumber = user.MobileNumber,
+                PhoneNumer = user.PhoneNumer,
+                UserName = user.UserName
+            };
         }
 
         public static List<Product> Map(List<Product> list)
