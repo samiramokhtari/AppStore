@@ -28,6 +28,28 @@ namespace AppStore.Biz
             };
         }
 
+        public static List<Comment> Map(List<Comment> list)
+        {
+            List<Comment> result = new List<Comment>();
+            foreach (var item in list)
+            {
+                result.Add(Map(item));
+            }
+            return result;
+        }
+
+        private static Comment Map(Comment item)
+        {
+            return new Comment()
+            {
+                Id = item.Id,
+                DateTime = item.DateTime,
+                Description = item.Description,
+                Product_Id = item.Product_Id,
+                UserRate = item.UserRate,
+                User_Id = item.User_Id
+            };
+        }
 
         public static List<Product> Map(List<Product> list)
         {
@@ -43,7 +65,8 @@ namespace AppStore.Biz
         public static UserDownload Map(UserDownload model)
         {
             if (model == null) return null;
-            return new UserDownload() {
+            return new UserDownload()
+            {
 
                 DateTime = model.DateTime,
                 Id = model.Id,
@@ -69,7 +92,8 @@ namespace AppStore.Biz
         public static Group Map(Group model)
         {
             if (model == null) return null;
-            return new Group() {
+            return new Group()
+            {
                 Id = model.Id,
                 Name = model.Name,
                 Type = model.Type
@@ -90,6 +114,6 @@ namespace AppStore.Biz
         }
 
 
-        
+
     }
 }

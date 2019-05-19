@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace AppStore.UI.Controllers
 {
@@ -12,26 +12,35 @@ namespace AppStore.UI.Controllers
     {
 
         // GET api/<controller>
-        public IEnumerable<Comment> Get(int Productid)
+        public IEnumerable<Comment> Get(int Id)
         {
-            return new Biz.CommentBiz().Get(Productid);
+            return Biz.ApiMapper.Map( new Biz.CommentBiz().Get(Id));
         }
 
         // POST api/<controller>
         public OperationResult Post([FromBody]Comment model)
         {
-            var result = new Biz.CommentBiz().Create(model);
-            return result;
-        }
+            var OperationResult = new Biz.CommentBiz().Create(new Comment() { Description = model.Description, Product_Id = model.Product_Id, UserRate = model.UserRate });
+            if (!OperationResult.Succeed)
+            {
+                return OperationResult;
+            }
+            else
+            {
+                double rate = new Biz.CommentBiz().GetRate(model.Product_Id);
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+                Product product = new Biz.ProductBiz().Get(model.Product_Id);
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+                product.Rate = rate;
+                return new Biz.ProductBiz().Edit(product);
+            }
+        }
+        
+
+        [HttpGet]
+        public int CommentsCount(int Id)
         {
+            return new Biz.CommentBiz().CommnetsCount(Id);
         }
     }
 }

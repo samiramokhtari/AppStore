@@ -31,9 +31,9 @@ namespace AppStore.UI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> Search(string Id)
+        public IEnumerable<Product> Search(string value)
         {
-            return Biz.ApiMapper.Map(new Biz.ProductBiz().Find(Id));
+            return Biz.ApiMapper.Map(new Biz.ProductBiz().Find(value));
         }
 
         [HttpGet]

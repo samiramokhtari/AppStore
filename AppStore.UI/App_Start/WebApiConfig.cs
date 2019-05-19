@@ -16,14 +16,21 @@ namespace AppStore.UI
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApiMethod",
+                name: "fullAddress",
                 routeTemplate: "api/{controller}/{action}/{id}",
+                constraints: new { id = @"\d{1,10}", action = @"[a-zA-Z].*" },
                 defaults: new { id = RouteParameter.Optional }
+            );
+            config.Routes.MapHttpRoute(
+                name: "fullWithStringAddress",
+                routeTemplate: "api/{controller}/{action}/{value}",
+                constraints: new { value = @"[a-zA-Z0-9]+", action = @"[a-zA-Z].*" },
+                defaults: new { value = RouteParameter.Optional }
             );
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional, action = "Get" }
             );
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
