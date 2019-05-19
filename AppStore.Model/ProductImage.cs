@@ -13,7 +13,7 @@ namespace AppStore.Models
         Logo = 0,
         Details = 1,
     }
-    public class ProductImage
+    public class ProductImage : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

@@ -13,7 +13,7 @@ using AppStore.Models;
 
 namespace AppStore.DAL
 {
-    public class BaseBs<TEntity> where TEntity : class, new()
+    public class BaseBs<TEntity> where TEntity : class, IEntity, new()
     {
 
         public IRepository<TEntity> Repository;
@@ -64,7 +64,8 @@ namespace AppStore.DAL
         public virtual TEntity Insert(TEntity entity, out OperationResult rState)
         {
             Repository.Add(entity, out rState);
-
+            if (rState.Succeed)
+                rState.Id = entity.Id;
             return entity;
         }
 

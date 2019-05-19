@@ -13,13 +13,14 @@ namespace AppStore.UI.Controllers
         // GET api/<controller>
         public IEnumerable<Product> Get()
         {
-            return new Biz.ProductBiz().GetAll();
+            return  Biz.ApiMapper.Map(new Biz.ProductBiz().GetAll());
         }
 
         // GET api/<controller>/5
         public Product Get(int id)
         {
-            return new Biz.ProductBiz().Get(id);
+            var product = new Biz.ProductBiz().Get(id);
+            return Biz.ApiMapper.Map(product);
         }
 
         // POST api/<controller>

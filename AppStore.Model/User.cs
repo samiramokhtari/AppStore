@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppStore.Models
 {
-    public class User
+    public class User : IEntity
     {
         public int Id { get; set; }
         public string UserName { get; set; }

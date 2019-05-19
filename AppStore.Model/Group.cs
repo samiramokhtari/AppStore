@@ -13,7 +13,7 @@ namespace AppStore.Models
         Application = 0,
         Game = 1
     }
-    public class Group
+    public class Group : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

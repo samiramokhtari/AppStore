@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppStore.Models
 {
-  public  class UserDownload
+  public  class UserDownload : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

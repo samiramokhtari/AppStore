@@ -7,6 +7,8 @@ namespace AppStore.Models
 {
     public class OperationResult
     {
+        public int Id { get; set; }
+
         private Exception _exception = null;
 
         public bool Succeed
